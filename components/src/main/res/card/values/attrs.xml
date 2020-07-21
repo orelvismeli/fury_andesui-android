@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="AndesCard" tools:ignore="ResourceName">
+
+        <attr name="andesCardType">
+            <enum name="none" value="1000" />
+            <enum name="highlight" value="1001" />
+            <enum name="error" value="1002" />
+            <enum name="success" value="1003" />
+            <enum name="warning" value="1004" />
+        </attr>
+
+        <attr name="andesCardHierarchy">
+            <enum name="primary" value="3000" />
+            <enum name="secondary" value="3001" />
+        </attr>
+
+        <attr name="andesCardPadding">
+            <enum name="none" value="5000" />
+            <enum name="small" value="5001" />
+            <enum name="medium" value="5002" />
+            <enum name="large" value="5003" />
+            <enum name="xlarge" value="5004" />
+        </attr>
+
+        <attr name="andesCardStyle">
+            <enum name="elevated" value="6000" />
+            <enum name="outline" value="6001" />
+        </attr>
+
+        <attr name="andesCardTitle" format="reference" />
+
+    </declare-styleable>
+
+</resources>
