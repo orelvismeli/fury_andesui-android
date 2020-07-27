@@ -5,7 +5,7 @@ package com.mercadolibre.android.andesui.card.padding
  * because it's an enum, as you can see.
  * But as a bonus it gives you the proper implementation so you don't have to make any mapping.
  *
- * @property type Possible styles that an [AndesCard] may take.
+ * @property padding Possible styles that an [AndesCard] may take.
  */
 enum class AndesCardPadding {
     NONE,
@@ -18,7 +18,7 @@ enum class AndesCardPadding {
         fun fromString(value: String): AndesCardPadding = valueOf(value.toUpperCase())
     }
 
-    internal val type get() = getAndesCardPadding()
+    internal val padding get() = getAndesCardPadding()
 
     private fun getAndesCardPadding(): AndesCardPaddingInterface {
         return when (this) {
@@ -29,5 +29,4 @@ enum class AndesCardPadding {
             XLARGE -> AndesCardPaddingXLarge
         }
     }
-
 }

@@ -113,7 +113,9 @@ class AndesTagSimple : ConstraintLayout {
 
     @Suppress("unused")
     private constructor(context: Context) : super(context) {
-        throw IllegalStateException("Constructor without parameters in Andes Badge is not allowed. You must provide some attributes.")
+        throw IllegalStateException(
+                "Constructor without parameters in Andes Badge is not allowed. You must provide some attributes."
+        )
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -188,10 +190,8 @@ class AndesTagSimple : ConstraintLayout {
         val shape = GradientDrawable()
         shape.cornerRadius = size.size.border(context)
         shape.setColor(config.backgroundColor.colorInt(context))
-
         val borderSize = resources.getDimension(R.dimen.andes_tag_border)
         shape.setStroke(borderSize.toInt(), config.borderColor.colorInt(context))
-
         background = shape
 
         containerTag.minHeight = size.size.height(context).toInt()
@@ -216,14 +216,26 @@ class AndesTagSimple : ConstraintLayout {
             val constraintSet = ConstraintSet()
             constraintSet.clone(containerTag)
             if (leftContent == null) {
-                constraintSet.setMargin(R.id.simpleTagText, ConstraintSet.START, size.size.leftMargin(context))
+                constraintSet.setMargin(
+                        R.id.simpleTagText,
+                        ConstraintSet.START,
+                        size.size.leftMargin(context)
+                )
             } else {
-                constraintSet.setMargin(R.id.simpleTagText, ConstraintSet.START, config.leftContent!!.content.rightMargin(context))
+                constraintSet.setMargin(
+                        R.id.simpleTagText,
+                        ConstraintSet.START,
+                        config.leftContent!!.content.rightMargin(context)
+                )
             }
             if (config.rightContent == null || config.rightContent == AndesTagRightContent.NONE) {
                 constraintSet.setMargin(R.id.simpleTagText, ConstraintSet.END, size.size.rightMargin(context))
             } else {
-                constraintSet.setMargin(R.id.simpleTagText, ConstraintSet.END, config.rightContent.content.leftMargin(context, size))
+                constraintSet.setMargin(
+                        R.id.simpleTagText,
+                        ConstraintSet.END,
+                        config.rightContent.content.leftMargin(context, size)
+                )
             }
             constraintSet.applyTo(containerTag)
         }

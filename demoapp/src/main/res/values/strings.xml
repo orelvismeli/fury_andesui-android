@@ -112,6 +112,15 @@
     <string name="andes_checkbox_status">Status</string>
     <string name="andes_checkbox_align">Align</string>
 
+    <string name="andes_card_type">Type</string>
+    <string name="andes_card_style">Style</string>
+    <string name="andes_card_padding">Padding</string>
+    <string name="andes_card_hierarchy">Hierarchy</string>
+    <string name="andes_card_title">Title</string>
+    <string name="andes_card_title_example">Andes card title</string>
+    <string name="andes_card_link">Link</string>
+    <string name="andes_card_link_example">Card link</string>
+
     <string name="andes_radiobutton_text">Andes radiobutton</string>
     <string name="andes_radiobutton_type">Type</string>
     <string name="andes_radiobutton_status">Status</string>
@@ -157,6 +166,12 @@
     <string name="andesui_demoapp_thumbnail_description_48">Hierarchy: Loud, Size: 48, State: Enabled, Type: Icon</string>
     <string name="andesui_demoapp_thumbnail_description_64">Hierarchy: Default, Size: 64, State: Enabled, Type: Icon</string>
     <string name="andesui_demoapp_thumbnail_description_80">Hierarchy: Quiet, Size: 80, State: Enabled, Type: Icon</string>
+
+    <string name="andesui_demoapp_card_example_1">Andes card with title, style elevated, hierarchy primary, type warning, padding small and with action link.</string>
+    <string name="andesui_demoapp_card_example_2">Andes card with title, hierarchy secondary and padding small.</string>
+    <string name="andesui_demoapp_card_example_3">Andes card with title, style outline, hierarchy primary, type none, padding medium and with action link.</string>
+    <string name="andesui_demoapp_card_example_4">Andes card without title, style outline, hierarchy primary, type highlight, padding small and without action link.</string>
+    <string name="andesui_demoapp_card_example_5">Andes card with title, hierarchy secondary_dark and padding medium.</string>
 
     <string-array name="state_spinner">
         <item>Neutral</item>
@@ -283,6 +298,33 @@
         <item>Size 64</item>
         <item>Size 72</item>
         <item>Size 80</item>
+    </string-array>
+
+    <string-array name="card_type_spinner">
+        <item>None</item>
+        <item>Highlight</item>
+        <item>Error</item>
+        <item>Success</item>
+        <item>Warning</item>
+    </string-array>
+
+    <string-array name="card_style_spinner">
+        <item>Elevated</item>
+        <item>Outline</item>
+    </string-array>
+
+    <string-array name="card_padding_spinner">
+        <item>None</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>XLarge</item>
+    </string-array>
+
+    <string-array name="card_hierarchy_spinner">
+        <item>Primary</item>
+        <item>Secondary</item>
+        <item>Secondary dark</item>
     </string-array>
 
     <string-array name="thumbnail_type_spinner">

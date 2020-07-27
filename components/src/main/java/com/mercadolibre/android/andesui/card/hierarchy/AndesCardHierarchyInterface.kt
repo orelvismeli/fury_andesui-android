@@ -16,9 +16,12 @@ internal interface AndesCardHierarchyInterface {
 }
 
 internal object AndesCardHierarchyPrimary : AndesCardHierarchyInterface {
-    override fun backgroundColor() = R.color.andes_accent_color_500.toAndesColor()
+    override fun backgroundColor() = R.color.andes_white.toAndesColor()
 }
 
 internal object AndesCardHierarchySecondary : AndesCardHierarchyInterface {
-    override fun backgroundColor() = R.color.andes_red_500.toAndesColor()
+    override fun backgroundColor() = R.color.andes_gray_040_solid.toAndesColor()
+}
+internal object AndesCardHierarchySecondaryDark : AndesCardHierarchyInterface {
+    override fun backgroundColor() = R.color.andes_gray_070_solid.toAndesColor()
 }

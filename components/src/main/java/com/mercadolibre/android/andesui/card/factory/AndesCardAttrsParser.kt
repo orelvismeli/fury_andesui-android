@@ -10,12 +10,14 @@ import com.mercadolibre.android.andesui.card.padding.AndesCardPadding
 import com.mercadolibre.android.andesui.card.style.AndesCardStyle
 
 internal data class AndesCardAttrs(
-        val andesCardView: View?,
-        val andesCardType: AndesCardType,
-        val andesCardPadding: AndesCardPadding,
-        val andesCardStyle: AndesCardStyle,
-        val andesCardTitle: String?,
-        val andesCardHierarchy: AndesCardHierarchy
+    val andesCardView: View?,
+    val andesCardType: AndesCardType,
+    val andesCardPadding: AndesCardPadding,
+    val andesCardStyle: AndesCardStyle,
+    val andesCardTitle: String?,
+    val andesCardHierarchy: AndesCardHierarchy,
+    val linkText: String? = null,
+    val linkAction: View.OnClickListener? = null
 )
 
 /**
@@ -32,6 +34,7 @@ internal object AndesCardAttrParser {
 
     private const val ANDES_CARD_HIERARCHY_PRIMARY = "3000"
     private const val ANDES_CARD_HIERARCHY_SECONDARY = "3001"
+    private const val ANDES_CARD_HIERARCHY_SECONDARY_DARK = "3002"
 
     private const val ANDES_CARD_PADDING_NONE = "5000"
     private const val ANDES_CARD_PADDING_SMALL = "5001"
@@ -48,6 +51,7 @@ internal object AndesCardAttrParser {
         val hierarchy = when (typedArray.getString(R.styleable.AndesCard_andesCardHierarchy)) {
             ANDES_CARD_HIERARCHY_PRIMARY -> AndesCardHierarchy.PRIMARY
             ANDES_CARD_HIERARCHY_SECONDARY -> AndesCardHierarchy.SECONDARY
+            ANDES_CARD_HIERARCHY_SECONDARY_DARK -> AndesCardHierarchy.SECONDARY_DARK
             else -> AndesCardHierarchy.PRIMARY
         }
 
@@ -57,7 +61,7 @@ internal object AndesCardAttrParser {
             ANDES_CARD_PADDING_MEDIUM -> AndesCardPadding.MEDIUM
             ANDES_CARD_PADDING_LARGE -> AndesCardPadding.LARGE
             ANDES_CARD_PADDING_XLARGE -> AndesCardPadding.XLARGE
-            else -> AndesCardPadding.MEDIUM
+            else -> AndesCardPadding.NONE
         }
 
         val type = when (typedArray.getString(R.styleable.AndesCard_andesCardType)) {
@@ -81,8 +85,9 @@ internal object AndesCardAttrParser {
                 andesCardPadding = padding,
                 andesCardStyle = style,
                 andesCardTitle = typedArray.getString(R.styleable.AndesCard_andesCardTitle),
-                andesCardHierarchy = hierarchy
+                andesCardHierarchy = hierarchy,
+                linkText = null,
+                linkAction = null
         ).also { typedArray.recycle() }
     }
-
 }

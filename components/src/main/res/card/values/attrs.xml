@@ -14,6 +14,7 @@
         <attr name="andesCardHierarchy">
             <enum name="primary" value="3000" />
             <enum name="secondary" value="3001" />
+            <enum name="secondary_dark" value="3002" />
         </attr>
 
         <attr name="andesCardPadding">

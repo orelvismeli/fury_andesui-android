@@ -276,7 +276,10 @@ class AndesTagSimpleTest {
                 AndesTagLeftContent.DOT
         )
         val config = configFactory.create(attrs)
-        assertEquals(config.leftContent?.content!!.border(context), context.resources.getDimension(R.dimen.andes_tag_icon_radius))
+        assertEquals(
+                config.leftContent?.content!!.border(context),
+                context.resources.getDimension(R.dimen.andes_tag_icon_radius)
+        )
     }
 
     @Test

@@ -5,7 +5,7 @@ package com.mercadolibre.android.andesui.card.style
  * because it's an enum, as you can see.
  * But as a bonus it gives you the proper implementation so you don't have to make any mapping.
  *
- * @property type Possible styles that an [AndesCard] may take.
+ * @property style Possible styles that an [AndesCard] may take.
  */
 enum class AndesCardStyle {
     ELEVATED,
@@ -15,7 +15,7 @@ enum class AndesCardStyle {
         fun fromString(value: String): AndesCardStyle = valueOf(value.toUpperCase())
     }
 
-    internal val type get() = getAndesCardStyle()
+    internal val style get() = getAndesCardStyle()
 
     private fun getAndesCardStyle(): AndesCardStyleInterface {
         return when (this) {
@@ -23,5 +23,4 @@ enum class AndesCardStyle {
             OUTLINE -> AndesCardStyleOutline
         }
     }
-
 }

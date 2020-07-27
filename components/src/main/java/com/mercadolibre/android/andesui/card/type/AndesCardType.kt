@@ -29,5 +29,4 @@ enum class AndesCardType {
             WARNING -> AndesCardTypeWarning
         }
     }
-
 }

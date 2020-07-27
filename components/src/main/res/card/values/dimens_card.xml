@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="andes_card_border">1dp</dimen>
+    <dimen name="andes_card_corner_radius">6dp</dimen>
 
     <dimen name="andes_card_padding_none">0dp</dimen>
     <dimen name="andes_card_padding_small">16dp</dimen>
@@ -7,9 +9,16 @@
     <dimen name="andes_card_padding_large">32dp</dimen>
     <dimen name="andes_card_padding_xlarge">40dp</dimen>
 
+    <dimen name="andes_card_title_height_none">40dp</dimen>
+    <dimen name="andes_card_title_height_small">48dp</dimen>
+    <dimen name="andes_card_title_height_medium">56dp</dimen>
+    <dimen name="andes_card_title_height_large">64dp</dimen>
+    <dimen name="andes_card_title_height_xlarge">72dp</dimen>
+
+    <dimen name="andes_card_pipe_width">4dp</dimen>
+
     <dimen name="andes_card_title_size">16dp</dimen>
 
-    <dimen name="andes_card_flat_shadow">2dp</dimen>
     <dimen name="andes_card_elevated_shadow">16dp</dimen>
 
 </resources>

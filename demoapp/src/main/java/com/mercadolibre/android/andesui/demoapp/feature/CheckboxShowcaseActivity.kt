@@ -72,7 +72,9 @@ class CheckboxShowcaseActivity : AppCompatActivity() {
         }
 
         private fun addDynamicCheckbox(inflater: LayoutInflater): View {
-            val layoutCheckbox = inflater.inflate(R.layout.andesui_dynamic_checkbox_showcase, null, false) as ScrollView
+            val layoutCheckbox = inflater.inflate(
+                    R.layout.andesui_dynamic_checkbox_showcase, null, false
+            ) as ScrollView
 
             val checkbox: AndesCheckbox = layoutCheckbox.findViewById(R.id.andesCheckbox)
 
@@ -156,11 +158,12 @@ class CheckboxShowcaseActivity : AppCompatActivity() {
         }
 
         private fun addStaticCheckbox(inflater: LayoutInflater): View {
-            val layoutCheckbox = inflater.inflate(R.layout.andesui_checkbox_showcase, null, false) as ScrollView
+            val layoutCheckbox = inflater.inflate(
+                    R.layout.andesui_checkbox_showcase, null, false
+            ) as ScrollView
 
-            layoutCheckbox.findViewById<AndesButton>(R.id.andesui_demoapp_andes_checkbox_specs_button).setOnClickListener {
-                launchSpecs(it.context, AndesSpecs.CHECKBOX)
-            }
+            layoutCheckbox.findViewById<AndesButton>(R.id.andesui_demoapp_andes_checkbox_specs_button)
+                    .setOnClickListener { launchSpecs(it.context, AndesSpecs.CHECKBOX) }
 
             return layoutCheckbox
         }

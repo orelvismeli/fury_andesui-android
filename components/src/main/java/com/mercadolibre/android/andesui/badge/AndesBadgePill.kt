@@ -78,7 +78,9 @@ class AndesBadgePill : CardView {
 
     @Suppress("unused")
     private constructor(context: Context) : super(context) {
-        throw IllegalStateException("Constructor without parameters in Andes Badge is not allowed. You must provide some attributes.")
+        throw IllegalStateException(
+                "Constructor without parameters in Andes Badge is not allowed. You must provide some attributes."
+        )
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {

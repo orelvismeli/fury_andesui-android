@@ -49,8 +49,12 @@ internal interface AndesBadgeSizeInterface {
 internal class AndesLargeBadgeSize : AndesBadgeSizeInterface {
     override fun textSize(context: Context) = context.resources.getDimension(R.dimen.andes_badge_large_text_size)
     override fun height(context: Context) = context.resources.getDimension(R.dimen.andes_badge_large_height)
-    override fun textMargin(context: Context) = context.resources.getDimension(R.dimen.andes_badge_large_text_margin).toInt()
-    override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_badge_large_corner_radius)
+    override fun textMargin(
+        context: Context
+    ) = context.resources.getDimension(R.dimen.andes_badge_large_text_margin).toInt()
+    override fun cornerRadius(
+        context: Context
+    ) = context.resources.getDimension(R.dimen.andes_badge_large_corner_radius)
 }
 
 /**

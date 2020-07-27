@@ -10,6 +10,7 @@ private const val COMPONENT_PREFIX = "$HOME/n-a#/componentes"
 
 internal enum class AndesSpecs(val link: String) {
     HOME_PAGE(HOME),
+    CARD("$COMPONENT_PREFIX/card-1567452592"),
     CHECKBOX("$COMPONENT_PREFIX/checkbox"),
     TAG("$COMPONENT_PREFIX/tag"),
     BADGE("$COMPONENT_PREFIX/badge"),

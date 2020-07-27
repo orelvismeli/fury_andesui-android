@@ -23,7 +23,11 @@ internal object AndesBadgePillConfigurationFactory {
         return with(andesMessageAttrs) {
             AndesBadgePillConfiguration(
                     backgroundColor = resolveBackgroundColor(andesBadgePillHierarchy.hierarchy, andesBadgeType.type),
-                    backgroundRadius = resolveBackgroundRadius(andesBadgePillSize.size, andesBadgePillBorder.border, context),
+                    backgroundRadius = resolveBackgroundRadius(
+                            andesBadgePillSize.size,
+                            andesBadgePillBorder.border,
+                            context
+                    ),
                     textColor = resolveTextColor(andesBadgePillHierarchy.hierarchy, andesBadgeType.type),
                     text = andesBadgeText,
                     textSize = resolveTextSize(andesBadgePillSize.size, context),
@@ -33,7 +37,10 @@ internal object AndesBadgePillConfigurationFactory {
         }
     }
 
-    private fun resolveBackgroundColor(hierarchy: AndesBadgePillHierarchyInterface, type: AndesBadgeTypeInterface) = hierarchy.backgroundColor(type)
+    private fun resolveBackgroundColor(
+        hierarchy: AndesBadgePillHierarchyInterface,
+        type: AndesBadgeTypeInterface
+    ) = hierarchy.backgroundColor(type)
     private fun resolveBackgroundRadius(
         size: AndesBadgeSizeInterface,
         border: AndesBadgeBorderInterface,
@@ -41,7 +48,10 @@ internal object AndesBadgePillConfigurationFactory {
     ) =
              floatArrayOf(border.upStartCornerRadius(size, context), border.upEndCornerRadius(size, context),
                      border.bottomEndCornerRadius(size, context), border.bottomStartCornerRadius(size, context))
-    private fun resolveTextColor(hierarchy: AndesBadgePillHierarchyInterface, type: AndesBadgeTypeInterface) = hierarchy.textColor(type)
+    private fun resolveTextColor(
+        hierarchy: AndesBadgePillHierarchyInterface,
+        type: AndesBadgeTypeInterface
+    ) = hierarchy.textColor(type)
     private fun resolveTextSize(size: AndesBadgeSizeInterface, context: Context) = size.textSize(context)
     private fun resolveTextMargin(size: AndesBadgeSizeInterface, context: Context) = size.textMargin(context)
     private fun resolveHeight(size: AndesBadgeSizeInterface, context: Context) = size.height(context)

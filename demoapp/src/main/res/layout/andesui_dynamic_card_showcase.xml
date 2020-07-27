@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="wrap_content"
         android:isScrollContainer="true">
 
         <com.mercadolibre.android.andesui.card.AndesCard
-            android:id="@+id/andesCheckbox"
-            android:layout_width="wrap_content"
+            android:id="@+id/andesCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:andesCardTitle="@string/andes_radiobutton_showcase"
-            app:andesCardHierarchy="primary"
-            app:andesCardPadding="medium"
-            app:andesCardStyle="elevated"
-            app:andesCardType="warning"
+            android:layout_margin="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,18 +23,18 @@
             android:id="@+id/spinnerType"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:gravity="end"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/andesCheckbox" />
+            app:layout_constraintTop_toBottomOf="@+id/andesCard" />
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="@string/andes_checkbox_type"
+            android:text="@string/andes_card_type"
             app:layout_constraintBottom_toBottomOf="@+id/spinnerType"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/spinnerType" />
@@ -47,23 +43,23 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/andes_checkbox_status"
-            app:layout_constraintBottom_toBottomOf="@+id/spinnerStatus"
+            android:text="@string/andes_card_style"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerStyle"
             app:layout_constraintStart_toStartOf="@+id/textView15"
-            app:layout_constraintTop_toTopOf="@+id/spinnerStatus"
+            app:layout_constraintTop_toTopOf="@+id/spinnerStyle"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/andes_checkbox_align"
-            app:layout_constraintBottom_toBottomOf="@+id/spinnerAlign"
+            android:text="@string/andes_card_padding"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerPadding"
             app:layout_constraintStart_toStartOf="@+id/textView16"
-            app:layout_constraintTop_toTopOf="@+id/spinnerAlign" />
+            app:layout_constraintTop_toTopOf="@+id/spinnerPadding" />
 
         <Spinner
-            android:id="@+id/spinnerStatus"
+            android:id="@+id/spinnerStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -72,34 +68,38 @@
             app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
 
         <Spinner
-            android:id="@+id/spinnerAlign"
+            android:id="@+id/spinnerPadding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerStatus"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerStatus" />
+            app:layout_constraintEnd_toEndOf="@+id/spinnerStyle"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerStyle" />
 
         <com.mercadolibre.android.andesui.textfield.AndesTextfield
-            android:id="@+id/andesTextfield"
+            android:id="@+id/andesTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:andesTextfieldLabel="@string/andes_card_title"
+            app:andesTextfieldRightContent="clear"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/andesLink"
+            app:layout_constraintEnd_toStartOf="@+id/andesLink"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textView20"
+            app:layout_constraintTop_toTopOf="@+id/andesLink" />
+
+        <com.mercadolibre.android.andesui.textfield.AndesTextfield
+            android:id="@+id/andesLink"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerAlign"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerAlign" />
-
-        <com.mercadolibre.android.andesui.button.AndesButton
-            android:id="@+id/buttonUpdate"
-            android:layout_width="0dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            app:andesButtonText="@string/andes_message_showcase_change"
-            app:layout_constraintEnd_toStartOf="@+id/buttonClear"
+            app:andesTextfieldLabel="@string/andes_card_link"
+            app:andesTextfieldRightContent="clear"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerHierarchy"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/andesTextfield"
-            app:layout_constraintTop_toBottomOf="@+id/andesTextfield" />
+            app:layout_constraintStart_toEndOf="@+id/andesTitle"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerHierarchy" />
 
         <com.mercadolibre.android.andesui.button.AndesButton
             android:id="@+id/buttonClear"
@@ -107,10 +107,38 @@
             android:layout_height="328dp"
             app:andesButtonText="@string/andesui_demoapp_clear_button"
             app:layout_constraintBottom_toBottomOf="@+id/buttonUpdate"
-            app:layout_constraintEnd_toEndOf="@+id/andesTextfield"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/buttonUpdate"
+            app:layout_constraintEnd_toEndOf="@+id/andesLink"
             app:layout_constraintTop_toTopOf="@+id/buttonUpdate" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/andes_card_hierarchy"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toTopOf="@+id/spinnerHierarchy" />
+
+        <Spinner
+            android:id="@+id/spinnerHierarchy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerPadding"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerPadding" />
+
+        <com.mercadolibre.android.andesui.button.AndesButton
+            android:id="@+id/buttonUpdate"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="16dp"
+            app:andesButtonText="@string/andes_message_showcase_change"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonClear"
+            app:layout_constraintStart_toStartOf="@+id/andesTitle"
+            app:layout_constraintTop_toBottomOf="@+id/andesTitle" />
 
     </android.support.constraint.ConstraintLayout>
 
