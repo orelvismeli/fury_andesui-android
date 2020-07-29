@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.mercadolibre.android.andesui.button.AndesButton
+import com.mercadolibre.android.andesui.checkbox.AndesCheckbox
+import com.mercadolibre.android.andesui.checkbox.status.AndesCheckboxStatus
 import com.mercadolibre.android.andesui.demoapp.AndesSpecs
 import com.mercadolibre.android.andesui.demoapp.PageIndicator
 import com.mercadolibre.android.andesui.demoapp.R
@@ -17,6 +19,9 @@ import com.mercadolibre.android.andesui.demoapp.launchSpecs
 import com.mercadolibre.android.andesui.message.AndesMessage
 import com.mercadolibre.android.andesui.message.hierarchy.AndesMessageHierarchy
 import com.mercadolibre.android.andesui.message.type.AndesMessageType
+import com.mercadolibre.android.andesui.textfield.AndesTextarea
+import com.mercadolibre.android.andesui.textfield.AndesTextfield
+import com.mercadolibre.android.andesui.textfield.state.AndesTextfieldState
 
 class MessageShowcaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,36 +95,36 @@ class MessageShowcaseActivity : AppCompatActivity() {
                 typeSpinner.adapter = adapter
             }
 
-            val dismissableCheckbox = layoutMessagesChange.findViewById<CheckBox>(R.id.dismissable_checkbox)
+            val dismissableCheckbox = layoutMessagesChange.findViewById<AndesCheckbox>(R.id.dismissable_checkbox)
 
-            val bodyText = layoutMessagesChange.findViewById<EditText>(R.id.body_text)
+            val bodyText = layoutMessagesChange.findViewById<AndesTextarea>(R.id.body_text)
 
-            val titleText = layoutMessagesChange.findViewById<EditText>(R.id.title_text)
+            val titleText = layoutMessagesChange.findViewById<AndesTextfield>(R.id.title_text)
 
-            val primaryActionText = layoutMessagesChange.findViewById<EditText>(R.id.primary_action_text)
+            val primaryActionText = layoutMessagesChange.findViewById<AndesTextfield>(R.id.primary_action_text)
 
-            val secondaryActionText = layoutMessagesChange.findViewById<EditText>(R.id.secondary_action_text)
+            val secondaryActionText = layoutMessagesChange.findViewById<AndesTextfield>(R.id.secondary_action_text)
 
-            val linkActionText = layoutMessagesChange.findViewById<EditText>(R.id.link_action_text)
+            val linkActionText = layoutMessagesChange.findViewById<AndesTextfield>(R.id.link_action_text)
 
             val changeButton = layoutMessagesChange.findViewById<AndesButton>(R.id.change_button)
             val changeMessage = layoutMessagesChange.findViewById<AndesMessage>(R.id.message)
 
             changeButton.setOnClickListener {
-                changeMessage.isDismissable = dismissableCheckbox.isChecked
-                changeMessage.title = titleText.text.toString()
                 if (bodyText.text.toString().isEmpty()) {
-                    Toast.makeText(
-                            context,
-                            "Message cannot be visualized with null body",
-                            Toast.LENGTH_SHORT
-                    ).show()
+                    bodyText.state = AndesTextfieldState.ERROR
+                    bodyText.helper = "Message cannot be visualized with null body"
+                    bodyText.requestFocus()
+                    return@setOnClickListener
                 } else {
+                    bodyText.state = AndesTextfieldState.IDLE
+                    bodyText.helper = null
                     changeMessage.body = bodyText.text.toString()
                 }
 
+                changeMessage.isDismissable = dismissableCheckbox.status == AndesCheckboxStatus.SELECTED
+                changeMessage.title = titleText.text.toString()
                 changeMessage.type = AndesMessageType.fromString(typeSpinner.selectedItem.toString())
-
                 changeMessage.hierarchy = AndesMessageHierarchy.fromString(hierarchySpinner.selectedItem.toString())
 
                 if (primaryActionText.text.toString().isNotEmpty()) {
@@ -131,7 +136,7 @@ class MessageShowcaseActivity : AppCompatActivity() {
                     changeMessage.hidePrimaryAction()
                 }
 
-                if (dismissableCheckbox.isChecked) {
+                if (dismissableCheckbox.status == AndesCheckboxStatus.SELECTED) {
                     changeMessage.setupDismissableCallback(View.OnClickListener {
                         Toast.makeText(context, "Dismiss onClick", Toast.LENGTH_LONG).show()
                     })
@@ -163,7 +168,7 @@ class MessageShowcaseActivity : AppCompatActivity() {
                         primaryActionText.text.toString() == "" -> {
                             changeMessage.setupLinkAction(linkActionText.text.toString(), View.OnClickListener {
                                 Toast.makeText(context, "link onClick", Toast.LENGTH_SHORT).show()
-                            }, changeMessage.hierarchy)
+                            })
                         }
                         else -> {
                             Toast.makeText(
@@ -188,22 +193,48 @@ class MessageShowcaseActivity : AppCompatActivity() {
                     R.layout.andesui_message_showcase, null, false
             ) as ScrollView
 
-            val button = layoutMessages.findViewById<AndesButton>(R.id.button)
-
             layoutMessages.findViewById<AndesButton>(R.id.andesui_demoapp_andes_specs_message).setOnClickListener {
                 launchSpecs(it.context, AndesSpecs.MESSAGE)
             }
 
-            button.setOnClickListener {
-                val message = layoutMessages.findViewById<AndesMessage>(R.id.message_loud)
-                val hour = System.currentTimeMillis().toString()
-                message.title = ("The current millis are: $hour")
-                message.hierarchy = (AndesMessageHierarchy.LOUD)
-                message.type = (AndesMessageType.SUCCESS)
-                message.isDismissable = false
-                message.body = "I insist. Current millis are: $hour"
-            }
+            layoutMessages.findViewById<AndesMessage>(R.id.messagePrimaryAction)
+                    .setupPrimaryAction("Primary", View.OnClickListener {
+                        Toast.makeText(context, "Primary onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
 
+            layoutMessages.findViewById<AndesMessage>(R.id.messagePrimaryAndSecondaryActionQuiet)
+                    .setupPrimaryAction("Primary", View.OnClickListener {
+                        Toast.makeText(context, "Primary onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
+            layoutMessages.findViewById<AndesMessage>(R.id.messagePrimaryAndSecondaryActionQuiet)
+                    .setupSecondaryAction("Secondary", View.OnClickListener {
+                        Toast.makeText(context, "Secondary onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
+
+            layoutMessages.findViewById<AndesMessage>(R.id.messagePrimaryAndSecondaryActionLoud)
+                    .setupPrimaryAction("Primary", View.OnClickListener {
+                        Toast.makeText(context, "Primary onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
+            layoutMessages.findViewById<AndesMessage>(R.id.messagePrimaryAndSecondaryActionLoud)
+                    .setupSecondaryAction("Secondary", View.OnClickListener {
+                        Toast.makeText(context, "Secondary onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
+
+            layoutMessages.findViewById<AndesMessage>(R.id.messageLinkLoud)
+                    .setupLinkAction("Link", View.OnClickListener {
+                        Toast.makeText(context, "Link onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
+            layoutMessages.findViewById<AndesMessage>(R.id.messageLinkQuiet)
+                    .setupLinkAction("Link", View.OnClickListener {
+                        Toast.makeText(context, "Link onClick", Toast.LENGTH_SHORT).show()
+                    }
+            )
             return layoutMessages
         }
     }

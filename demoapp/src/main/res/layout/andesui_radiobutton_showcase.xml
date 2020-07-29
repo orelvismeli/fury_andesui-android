@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/andes_white">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
             <com.mercadolibre.android.andesui.radiobutton.AndesRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 app:andesRadioButtonAlign="left"
                 app:andesRadioButtonStatus="selected"
                 app:andesRadioButtonText="@string/andes_radiobutton_showcase"/>
@@ -37,6 +38,7 @@
             <com.mercadolibre.android.andesui.radiobutton.AndesRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 app:andesRadioButtonAlign="right"
                 app:andesRadioButtonStatus="unselected"
                 app:andesRadioButtonText="@string/andes_radiobutton_showcase"/>
@@ -44,6 +46,7 @@
             <com.mercadolibre.android.andesui.radiobutton.AndesRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 app:andesRadioButtonAlign="left"
                 app:andesRadioButtonStatus="unselected"
                 app:andesRadioButtonType="disabled"
@@ -52,6 +55,7 @@
             <com.mercadolibre.android.andesui.radiobutton.AndesRadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 app:andesRadioButtonAlign="right"
                 app:andesRadioButtonStatus="selected"
                 app:andesRadioButtonType="disabled"

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="@string/andes_radiobuttongroup_showcase"
+            android:textColor="#000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/andes_radiobuttongroup_vertical"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.mercadolibre.android.andesui.radiobuttongroup.AndesRadioButtonGroup
+            android:id="@+id/radioButtonGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:andesRadioButtonGroupAlign="left"
+            app:andesRadioButtonGroupDistribution="vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/andes_radiobuttongroup_horizontal"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:scrollbars="none">
+
+            <com.mercadolibre.android.andesui.radiobuttongroup.AndesRadioButtonGroup
+                android:id="@+id/radioButtonGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:andesRadioButtonGroupAlign="left"
+                app:andesRadioButtonGroupDistribution="horizontal" />
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -16,6 +16,7 @@
     <dimen name="andes_message_guideline_icon_end">16dp</dimen>
     <dimen name="andes_message_guideline_padding_top">16dp</dimen>
     <dimen name="andes_message_guideline_padding_bottom">16dp</dimen>
+    <dimen name="andes_link_button_message_guideline_padding_bottom">10dp</dimen>
 
     <dimen name="andes_message_pipe_width">4dp</dimen>
 

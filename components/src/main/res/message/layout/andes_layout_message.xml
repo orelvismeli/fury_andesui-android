@@ -90,6 +90,13 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_end="@dimen/andes_message_guideline_padding_bottom" />
 
+        <android.support.constraint.Guideline
+            android:id="@+id/andes_link_action_bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/andes_link_button_message_guideline_padding_bottom" />
+
         <View
             android:id="@+id/andes_pipe"
             android:layout_width="@dimen/andes_message_pipe_width"
@@ -118,11 +125,11 @@
             android:id="@+id/andes_link_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             app:andesButtonHierarchy="loud"
             app:andesButtonSize="medium"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/andes_bottom_guideline"
+            app:layout_constraintBottom_toTopOf="@+id/andes_link_action_bottom_guideline"
             app:layout_constraintEnd_toStartOf="@+id/andes_dismissableleft_guideline"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/andes_righticon_guideline"

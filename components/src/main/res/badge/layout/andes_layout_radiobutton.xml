@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/andes_radiobutton_container"
+    android:id="@+id/andesRadioButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -11,10 +11,10 @@
         android:layout_width="@dimen/andes_radiobutton_size_icon"
         android:layout_height="@dimen/andes_radiobutton_size_icon"
         android:layout_margin="@dimen/andes_radiobutton_margin"
-        app:layout_constraintBottom_toBottomOf="@id/andes_radiobutton_container"
+        app:layout_constraintBottom_toBottomOf="@id/andesRadioButton"
         app:layout_constraintEnd_toStartOf="@+id/checkboxText"
-        app:layout_constraintStart_toStartOf="@id/andes_radiobutton_container"
-        app:layout_constraintTop_toTopOf="@+id/andes_radiobutton_container" >
+        app:layout_constraintStart_toStartOf="@id/andesRadioButton"
+        app:layout_constraintTop_toTopOf="@+id/andesRadioButton" >
 
         <FrameLayout
             android:id="@+id/leftRadioButtonBorder"
@@ -36,10 +36,10 @@
         android:textSize="@dimen/andes_tag_small_text_size"
         android:layout_marginLeft="@dimen/andes_radiobutton_text_margin"
         android:layout_marginRight="@dimen/andes_radiobutton_text_margin"
-        app:layout_constraintBottom_toBottomOf="@id/andes_radiobutton_container"
+        app:layout_constraintBottom_toBottomOf="@id/andesRadioButton"
         app:layout_constraintEnd_toStartOf="@+id/rightRadioButton"
         app:layout_constraintStart_toEndOf="@+id/leftRadioButton"
-        app:layout_constraintTop_toTopOf="@id/andes_radiobutton_container" />
+        app:layout_constraintTop_toTopOf="@id/andesRadioButton" />
 
     <FrameLayout
         android:id="@+id/rightRadioButton"
@@ -47,10 +47,10 @@
         android:layout_height="@dimen/andes_radiobutton_size_icon"
         android:layout_margin="@dimen/andes_radiobutton_margin"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/andes_radiobutton_container"
-        app:layout_constraintEnd_toEndOf="@id/andes_radiobutton_container"
+        app:layout_constraintBottom_toBottomOf="@+id/andesRadioButton"
+        app:layout_constraintEnd_toEndOf="@id/andesRadioButton"
         app:layout_constraintStart_toEndOf="@+id/checkboxText"
-        app:layout_constraintTop_toTopOf="@+id/andes_radiobutton_container" >
+        app:layout_constraintTop_toTopOf="@+id/andesRadioButton" >
 
         <FrameLayout
             android:id="@+id/rightRadioButtonBorder"

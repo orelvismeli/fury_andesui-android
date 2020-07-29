@@ -8,4 +8,7 @@
     <dimen name="andes_radiobutton_stroke_width">2dp</dimen>
     <dimen name="andes_radiobutton_margin_in">4dp</dimen>
     <dimen name="andes_radiobutton_padding">2dp</dimen>
+
+    <dimen name="andes_radiobutton_padding_vertical">12dp</dimen>
+    <dimen name="andes_radiobutton_padding_horizontal">16dp</dimen>
 </resources>

@@ -17,7 +17,7 @@
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesMessageBodyText="@string/body_text"
             app:andesMessageDismissable="true"
-            app:andesMessageHierarchy="loud"
+            app:andesMessageHierarchy="quiet"
             app:andesMessageType="success"
             app:andesMessageTitleText="@string/title_text" />
 
@@ -27,8 +27,8 @@
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesMessageBodyText="@string/body_text"
             app:andesMessageDismissable="true"
-            app:andesMessageHierarchy="quiet"
-            app:andesMessageType="warning"
+            app:andesMessageHierarchy="loud"
+            app:andesMessageType="success"
             app:andesMessageTitleText="@string/title_text" />
 
         <com.mercadolibre.android.andesui.message.AndesMessage
@@ -36,27 +36,54 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesMessageBodyText="@string/body_text"
-            app:andesMessageHierarchy="loud"
-            app:andesMessageType="neutral"
+            app:andesMessageHierarchy="quiet"
+            app:andesMessageType="warning"
             app:andesMessageTitleText="@string/title_text" />
 
         <com.mercadolibre.android.andesui.message.AndesMessage
-            android:id="@+id/message_loud"
+            android:id="@+id/messagePrimaryAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_vertical"
+            app:andesMessageBodyText="@string/body_text"
+            app:andesMessageHierarchy="loud"
+            app:andesMessageType="warning" />
+
+        <com.mercadolibre.android.andesui.message.AndesMessage
+            android:id="@+id/messagePrimaryAndSecondaryActionQuiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_vertical"
+            app:andesMessageBodyText="@string/body_text"
+            app:andesMessageHierarchy="quiet"
+            app:andesMessageType="neutral" />
+
+        <com.mercadolibre.android.andesui.message.AndesMessage
+            android:id="@+id/messagePrimaryAndSecondaryActionLoud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_vertical"
+            app:andesMessageBodyText="@string/body_text"
+            app:andesMessageHierarchy="loud"
+            app:andesMessageType="neutral" />
+
+        <com.mercadolibre.android.andesui.message.AndesMessage
+            android:id="@+id/messageLinkQuiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_vertical"
+            app:andesMessageBodyText="@string/body_text"
+            app:andesMessageHierarchy="quiet"
+            app:andesMessageType="error" />
+
+        <com.mercadolibre.android.andesui.message.AndesMessage
+            android:id="@+id/messageLinkLoud"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesMessageBodyText="@string/body_text"
             app:andesMessageHierarchy="loud"
             app:andesMessageType="error" />
-
-        <com.mercadolibre.android.andesui.button.AndesButton
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:andesButtonHierarchy="loud"
-            app:andesButtonSize="large"
-            app:andesButtonText="@string/andesui_demoapp_message_generate_random_message" />
 
         <TextView
             android:id="@+id/andesui_demoapp_label_more"
@@ -74,5 +101,7 @@
             app:andesButtonSize="medium"
             app:andesButtonText="@string/andesui_demoapp_label_andes_message_specs"
             app:layout_constraintTop_toBottomOf="@id/andesui_demoapp_label_more" />
+
     </LinearLayout>
+
 </ScrollView>

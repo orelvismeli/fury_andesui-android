@@ -122,16 +122,35 @@ class ButtonShowcaseActivity : AppCompatActivity() {
     }
 
     private fun addTransparentButtons(container: View) {
-        val andesButtonSmall = AndesButton(this, AndesButtonSize.SMALL, AndesButtonHierarchy.TRANSPARENT, null)
+        val andesButtonSmall = AndesButton(
+                this,
+                AndesButtonSize.SMALL,
+                AndesButtonHierarchy.TRANSPARENT,
+                null
+        )
         andesButtonSmall.text = getString(R.string.transparent_small_button_programmatic)
 
-        val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.TRANSPARENT, null)
+        val andesButtonMedium = AndesButton(
+                this,
+                AndesButtonSize.MEDIUM,
+                AndesButtonHierarchy.TRANSPARENT,
+                null
+        )
         andesButtonMedium.text = getString(R.string.transparent_medium_button_programmatic)
 
-        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.TRANSPARENT)
+        val andesButtonLarge = AndesButton(
+                this,
+                AndesButtonSize.LARGE,
+                AndesButtonHierarchy.TRANSPARENT
+        )
         andesButtonLarge.text = getString(R.string.transparent_large_button_programmatic)
 
-        val andesButtonLargeInt = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.TRANSPARENT, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
+        val andesButtonLargeInt = AndesButton(
+                this,
+                AndesButtonSize.LARGE,
+                AndesButtonHierarchy.TRANSPARENT,
+                AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT)
+        )
         andesButtonLargeInt.text = getString(R.string.transparent_large_button_programmatic_int)
 
         val params = LinearLayout.LayoutParams(
@@ -184,9 +203,15 @@ class ButtonShowcaseActivity : AppCompatActivity() {
 
         private fun initViews(): List<View> {
             val inflater = LayoutInflater.from(context)
-            val layoutLoudButtons = inflater.inflate(R.layout.andesui_loud_buttons_showcase, null, false)
-            val layoutQuietButtons = inflater.inflate(R.layout.andesui_quiet_buttons_showcase, null, false)
-            val layoutTransparentButtons = inflater.inflate(R.layout.andesui_transparent_buttons_showcase, null, false)
+            val layoutLoudButtons = inflater.inflate(
+                    R.layout.andesui_loud_buttons_showcase, null, false
+            )
+            val layoutQuietButtons = inflater.inflate(
+                    R.layout.andesui_quiet_buttons_showcase, null, false
+            )
+            val layoutTransparentButtons = inflater.inflate(
+                    R.layout.andesui_transparent_buttons_showcase, null, false
+            )
 
             return listOf<View>(layoutLoudButtons, layoutQuietButtons, layoutTransparentButtons)
         }

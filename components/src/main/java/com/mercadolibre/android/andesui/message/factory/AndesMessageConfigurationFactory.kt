@@ -41,7 +41,10 @@ internal object AndesMessageConfigurationFactory {
     fun create(context: Context, andesMessageAttrs: AndesMessageAttrs): AndesMessageConfiguration {
         return with(andesMessageAttrs) {
             AndesMessageConfiguration(
-                    iconBackgroundColor = resolveIconBackgroundColor(andesMessageType.type, andesMessageHierarchy.hierarchy),
+                    iconBackgroundColor = resolveIconBackgroundColor(
+                            andesMessageType.type,
+                            andesMessageHierarchy.hierarchy
+                    ),
                     backgroundColor = resolveBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
                     pipeColor = resolvePipeColor(andesMessageType.type),
                     textColor = resolveTextColor(andesMessageHierarchy.hierarchy),
@@ -60,12 +63,27 @@ internal object AndesMessageConfigurationFactory {
                     secondaryActionText = null,
                     linkActionText = null,
 
-                    primaryActionBackgroundColor = resolvePrimaryActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
+                    primaryActionBackgroundColor = resolvePrimaryActionBackgroundColor(
+                            andesMessageHierarchy.hierarchy,
+                            andesMessageType.type
+                    ),
                     primaryActionTextColor = resolvePrimaryActionTextColor(andesMessageHierarchy.hierarchy),
-                    secondaryActionBackgroundColor = resolveSecondaryActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
-                    secondaryActionTextColor = resolveSecondaryActionTextColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
-                    linkActionBackgroundColor = resolveLinkActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
-                    linkActionTextColor = resolveLinkActionTextColor(andesMessageHierarchy.hierarchy, andesMessageType.type)
+                    secondaryActionBackgroundColor = resolveSecondaryActionBackgroundColor(
+                            andesMessageHierarchy.hierarchy,
+                            andesMessageType.type
+                    ),
+                    secondaryActionTextColor = resolveSecondaryActionTextColor(
+                            andesMessageHierarchy.hierarchy,
+                            andesMessageType.type
+                    ),
+                    linkActionBackgroundColor = resolveLinkActionBackgroundColor(
+                            andesMessageHierarchy.hierarchy,
+                            andesMessageType.type
+                    ),
+                    linkActionTextColor = resolveLinkActionTextColor(
+                            andesMessageHierarchy.hierarchy,
+                            andesMessageType.type
+                    )
             )
         }
     }

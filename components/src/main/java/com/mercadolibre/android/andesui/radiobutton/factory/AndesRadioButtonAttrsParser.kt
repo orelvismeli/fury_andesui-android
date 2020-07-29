@@ -15,7 +15,7 @@ internal data class AndesRadioButtonAttrs(
 )
 
 /**
- * This object parse the attribute set and return an instance of AndesRadiobuttonAttrs to be used by AndesRadiobutton
+ * This object parse the attribute set and return an instance of AndesRadioButtonAttrs to be used by AndesRadioButton
  */
 internal object AndesRadioButtonAttrParser {
 

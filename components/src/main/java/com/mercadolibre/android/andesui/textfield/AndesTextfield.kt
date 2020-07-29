@@ -525,6 +525,10 @@ class AndesTextfield : ConstraintLayout {
         suffix.text = text
     }
 
+    fun requestFocusOnTextField() {
+        textComponent.requestFocus()
+    }
+
     private fun createConfig() = AndesTextfieldConfigurationFactory.create(context, andesTextfieldAttrs)
 
     /**

@@ -35,6 +35,10 @@
     <string name="andes_button_showcase">Andes Button</string>
     <string name="transparent_large_button_programmatic_int">Transparent Large Button Icon Int</string>
     <string name="andes_message_showcase">Andes Message</string>
+
+    <string name="andes_message_title">Atention! 👇</string>
+    <string name="andes_message_text">The purpose of a message is to highlight information on the screen.</string>
+
     <string name="body_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
     <string name="title_text">Atention!</string>
     <string name="andes_message_demoapp">Andes Message</string>
@@ -46,6 +50,9 @@
     <string name="change_primary">Primary action text</string>
     <string name="change_secondary">Secondary action text</string>
     <string name="change_link_button">Link action text</string>
+
+    <string name="title_description">Atention! 👇</string>
+    <string name="radiobutton_description">They allow you to make a selection from a list of options. Unlike checkboxes, radio buttons only allow you to choose an option.</string>
 
     <string name="andesui_demoapp_screen_button">Andes UI: Button</string>
     <string name="andesui_demoapp_screen_message">Andes UI: Message</string>
@@ -85,6 +92,7 @@
     <string name="andes_checkbox_showcase">Andes Checkbox</string>
     <string name="andes_card_showcase">Andes Card</string>
     <string name="andes_radiobutton_showcase">Andes RadioButton</string>
+    <string name="andes_radiobuttongroup_showcase">Andes RadioButtonGroup</string>
     <string name="andes_tag_showcase">Andes Tag</string>
     <string name="andes_simple_tag_showcase">Simple tag</string>
     <string name="andes_snackbar_showcase">Andes snackbar</string>
@@ -125,6 +133,8 @@
     <string name="andes_radiobutton_type">Type</string>
     <string name="andes_radiobutton_status">Status</string>
     <string name="andes_radiobutton_align">Align</string>
+    <string name="andes_radiobuttongroup_horizontal">Distribution horizontal</string>
+    <string name="andes_radiobuttongroup_vertical">Distribution vertical</string>
 
     <string name="andesui_demoapp_whatsnew_main_action">View What\'s New</string>
     <string name="andesui_demoapp_label_andes_contribution">I want to contribute 🤝</string>
@@ -181,8 +191,8 @@
     </string-array>
 
     <string-array name="hierarchy_spinner">
-        <item>Loud</item>
         <item>Quiet</item>
+        <item>Loud</item>
     </string-array>
 
     <string-array name="textfield_state_spinner">

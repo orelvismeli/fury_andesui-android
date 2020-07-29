@@ -293,7 +293,7 @@ class AndesMessage : CardView {
         }
     }
 
-    fun setupLinkAction(text: String, onClickListener: OnClickListener, hierarchy: AndesMessageHierarchy) {
+    fun setupLinkAction(text: String, onClickListener: OnClickListener) {
         if (primaryAction.visibility == View.GONE) {
 
             linkAction.setPadding(LINK_BUTTON_PADDING,
@@ -304,7 +304,11 @@ class AndesMessage : CardView {
             linkAction.visibility = View.VISIBLE
             linkActionText = text
             linkAction.textComponent.typeface = context.getFontOrDefault(R.font.andes_font_regular)
-            linkAction.textComponent.paintFlags = if (hierarchy == AndesMessageHierarchy.LOUD) Paint.UNDERLINE_TEXT_FLAG else 0
+            linkAction.textComponent.paintFlags = if (hierarchy == AndesMessageHierarchy.LOUD) {
+                Paint.UNDERLINE_TEXT_FLAG
+            } else {
+                0
+            }
             linkAction.setOnClickListener(onClickListener)
         } else {
             when {
