@@ -15,6 +15,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesButtonSize="large"
             app:andesButtonHierarchy="loud"
@@ -23,6 +24,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesButtonSize="medium"
             app:andesButtonHierarchy="loud"
@@ -31,6 +33,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="16dp"
             app:andesButtonSize="small"
             app:andesButtonHierarchy="loud"
@@ -39,6 +42,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesButtonEnabled="false"
             app:andesButtonSize="large"
@@ -48,6 +52,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesButtonLeftIconPath="andesui_icon"
             app:andesButtonSize="large"
@@ -57,6 +62,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="@dimen/button_margin_vertical"
             app:andesButtonEnabled="false"
             app:andesButtonRightIconPath="andesui_icon"
@@ -79,6 +85,7 @@
                 android:id="@+id/andesui_demoapp_andes_specs_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="click"
                 android:layout_marginTop="@dimen/button_margin_vertical"
                 app:andesButtonHierarchy="quiet"
                 app:andesButtonSize="medium"

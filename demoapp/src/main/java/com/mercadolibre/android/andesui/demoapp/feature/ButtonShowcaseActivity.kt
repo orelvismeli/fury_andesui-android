@@ -216,4 +216,10 @@ class ButtonShowcaseActivity : AppCompatActivity() {
             return listOf<View>(layoutLoudButtons, layoutQuietButtons, layoutTransparentButtons)
         }
     }
+
+    fun click(v:View){
+        if (v is AndesButton){
+            v.isLoading = !v.isLoading
+        }
+    }
 }

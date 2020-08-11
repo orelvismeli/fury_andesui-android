@@ -2,6 +2,7 @@ package com.mercadolibre.android.andesui.button
 
 import android.content.Context
 import android.os.Build
+import android.os.Parcelable
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.v7.widget.AppCompatButton
@@ -20,6 +21,8 @@ import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonHierarchy
 import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonIcon
 import com.mercadolibre.android.andesui.button.hierarchy.BackgroundColorConfig
 import com.mercadolibre.android.andesui.button.hierarchy.getConfiguredBackground
+import com.mercadolibre.android.andesui.button.loading.LoadingView
+import com.mercadolibre.android.andesui.button.loading.SavedState
 import com.mercadolibre.android.andesui.button.size.AndesButtonSize
 
 /**
@@ -59,10 +62,14 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSize
  */
 class AndesButton : ConstraintLayout {
 
+    private val STRING_EMPTY_VALUE = ""
+
     private lateinit var andesButtonAttrs: AndesButtonAttrs
     internal lateinit var leftIconComponent: SimpleDraweeView
     internal lateinit var rightIconComponent: SimpleDraweeView
     internal lateinit var textComponent: TextView
+    internal lateinit var loadingView: LoadingView
+    internal lateinit var currentText:String
 
     /**
      * Getter and setter for [text].
@@ -100,6 +107,41 @@ class AndesButton : ConstraintLayout {
                 updateComponentsAlignment(it)
             }
         }
+
+    /**
+     * Getter and setter for [isLoading].
+     */
+    var isLoading: Boolean
+        get(){
+        return loadingView.isLoading
+    }
+    set(value) {
+        loadingView.isLoading = value
+
+        if (value && text.toString().isNotEmpty()){
+            currentText = text.toString()
+            text = STRING_EMPTY_VALUE
+
+            leftIconComponent.visibility = View.GONE
+            rightIconComponent.visibility = View.GONE
+        }
+
+        if (!value && text.toString().isEmpty()){
+            text = currentText
+
+            leftIconComponent.visibility = View.VISIBLE
+            rightIconComponent.visibility = View.VISIBLE
+        }
+
+        createConfig().also {
+            updateDynamicComponents(it)
+            updateComponentsAlignment(it)
+        }
+    }
+
+    init {
+        isSaveEnabled = true
+    }
 
     /**
      * Simplest constructor for creating an AndesButton programmatically.
@@ -183,10 +225,12 @@ class AndesButton : ConstraintLayout {
         setupHeight(config)
 
         updateDynamicComponents(config)
+        setupIsLoadingView(config)
 
         addView(textComponent)
         addView(leftIconComponent)
         addView(rightIconComponent)
+        addView(loadingView)
 
         updateComponentsAlignment(config)
     }
@@ -199,6 +243,7 @@ class AndesButton : ConstraintLayout {
         setupTextComponent(config)
         setupLeftIconComponent(config)
         setupRightIconComponent(config)
+        setupLoadingComponent(config)
 
         background = config.background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -231,6 +276,9 @@ class AndesButton : ConstraintLayout {
 
         set.centerVertically(rightIconComponent.id, ConstraintSet.PARENT_ID)
 
+        set.centerVertically(loadingView.id, ConstraintSet.PARENT_ID)
+        set.centerHorizontally(loadingView.id, ConstraintSet.PARENT_ID)
+
         set.applyTo(this)
     }
 
@@ -246,6 +294,8 @@ class AndesButton : ConstraintLayout {
         leftIconComponent.id = View.generateViewId()
         rightIconComponent = SimpleDraweeView(context)
         rightIconComponent.id = View.generateViewId()
+        loadingView = LoadingView(context)
+        loadingView.id = View.generateViewId()
     }
 
     /**
@@ -273,6 +323,14 @@ class AndesButton : ConstraintLayout {
      */
     private fun setupEnabledView(config: AndesButtonConfiguration) {
         isEnabled = config.enabled
+    }
+
+    /**
+     * Sets this button show loading or not based on the current config.
+     *
+     */
+    private fun setupIsLoadingView(config: AndesButtonConfiguration) {
+        isLoading = config.isLoading
     }
 
     /**
@@ -330,6 +388,15 @@ class AndesButton : ConstraintLayout {
     }
 
     /**
+     * Gets data from the config and sets to the loading component of this button.
+     *
+     */
+    private fun setupLoadingComponent(config: AndesButtonConfiguration) {
+        loadingView.setParentHeight(config.height)
+        loadingView.setLoadingColor(config.textColor)
+    }
+
+    /**
      * Responsible to update components positions and constraints based on the current configuration
      */
     private fun updateComponentsAlignment(config: AndesButtonConfiguration) {
@@ -357,6 +424,30 @@ class AndesButton : ConstraintLayout {
 
     internal fun changeBackgroundColor(backgroundColorConfig: BackgroundColorConfig) {
         background = getConfiguredBackground(context, context.resources.getDimension(R.dimen.andes_button_border_radius_medium), backgroundColorConfig)
+    }
+
+    /**
+     * Save the current button status
+     */
+    override fun onSaveInstanceState(): Parcelable? {
+        var superState = super.onSaveInstanceState()
+        var state = SavedState(superState)
+        state.isLoading = isLoading
+        state.text = text.toString()
+        return state
+    }
+
+    /**
+     * Restore button status
+     */
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state is SavedState) {
+            isLoading = state.isLoading
+            text = state.text
+            super.onRestoreInstanceState(state.superState)
+            return
+        }
+        super.onRestoreInstanceState(state)
     }
 
     /**

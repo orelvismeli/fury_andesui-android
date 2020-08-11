@@ -37,7 +37,8 @@ internal data class AndesButtonConfiguration(
     val typeface: Typeface,
     val iconConfig: IconConfig? = null,
     val enabled: Boolean = true,
-    val lateralPadding: Int
+    val lateralPadding: Int,
+    val isLoading: Boolean = false
 ) {
     /**
      * Constant representing the max of lines a button can have
@@ -88,7 +89,8 @@ internal object AndesButtonConfigurationFactory {
                 typeface = resolveTypeface(hierarchy, context),
                 iconConfig = resolveIconConfig(size, hierarchy, andesButtonAttrs.andesButtonLeftIconPath, andesButtonAttrs.andesButtonRightIconPath, context),
                 enabled = andesButtonAttrs.andesButtonEnabled,
-                lateralPadding = resolveLateralPadding(size, context)
+                lateralPadding = resolveLateralPadding(size, context),
+                isLoading = andesButtonAttrs.andesButtonIsLoading
         )
     }
 

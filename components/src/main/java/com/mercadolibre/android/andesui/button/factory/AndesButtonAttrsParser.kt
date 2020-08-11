@@ -15,7 +15,8 @@ internal data class AndesButtonAttrs(
     val andesButtonLeftIconPath: String?,
     val andesButtonRightIconPath: String?,
     val andesButtonText: String?,
-    val andesButtonEnabled: Boolean = true
+    val andesButtonEnabled: Boolean = true,
+    val andesButtonIsLoading: Boolean = false
 )
 
 /**
@@ -66,7 +67,8 @@ internal object AndesButtonAttrsParser {
                 andesButtonLeftIconPath = typedArray.getString(R.styleable.AndesButton_andesButtonLeftIconPath),
                 andesButtonRightIconPath = typedArray.getString(R.styleable.AndesButton_andesButtonRightIconPath),
                 andesButtonEnabled = typedArray.getBoolean(R.styleable.AndesButton_andesButtonEnabled, true),
-                andesButtonText = typedArray.getString(R.styleable.AndesButton_andesButtonText)
+                andesButtonText = typedArray.getString(R.styleable.AndesButton_andesButtonText),
+                andesButtonIsLoading = typedArray.getBoolean(R.styleable.AndesButton_andesButtonIsLoading, false)
         ).also { typedArray.recycle() }
     }
 }

@@ -15,6 +15,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="16dp"
             app:andesButtonSize="large"
             app:andesButtonHierarchy="transparent"
@@ -23,6 +24,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="16dp"
             app:andesButtonSize="medium"
             app:andesButtonHierarchy="transparent"
@@ -31,6 +33,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="16dp"
             app:andesButtonSize="small"
             app:andesButtonHierarchy="transparent"
@@ -39,6 +42,7 @@
         <com.mercadolibre.android.andesui.button.AndesButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="click"
             android:layout_marginBottom="16dp"
             app:andesButtonEnabled="false"
             app:andesButtonSize="large"

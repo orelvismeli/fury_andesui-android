@@ -61,6 +61,7 @@ class AndesButtonTest {
         assertEquals(andesButton.paddingLeft, 16)
         assertNull(andesButton.leftIconComponent.drawable)
         assertNull(andesButton.rightIconComponent.drawable)
+        assertEquals(andesButton.isLoading, false)
     }
 
     @Test
@@ -75,6 +76,7 @@ class AndesButtonTest {
         assertEquals(andesButton.paddingLeft, 12)
         assertNull(andesButton.leftIconComponent.drawable)
         assertNull(andesButton.rightIconComponent.drawable)
+        assertEquals(andesButton.isLoading, false)
     }
 
     @Test
@@ -92,6 +94,7 @@ class AndesButtonTest {
         assertEquals(andesButton.paddingLeft, 16)
         assertThat(andesButton.leftIconComponent.drawable).isEqualToComparingOnlyGivenFields(icon)
         assertNull(andesButton.rightIconComponent.drawable)
+        assertEquals(andesButton.isLoading, false)
     }
 
     @Test
@@ -109,5 +112,6 @@ class AndesButtonTest {
         assertEquals(andesButton.paddingLeft, 16)
         assertNull(andesButton.leftIconComponent.drawable)
         assertThat(andesButton.rightIconComponent.drawable).isEqualToComparingOnlyGivenFields(icon)
+        assertEquals(andesButton.isLoading, false)
     }
 }
