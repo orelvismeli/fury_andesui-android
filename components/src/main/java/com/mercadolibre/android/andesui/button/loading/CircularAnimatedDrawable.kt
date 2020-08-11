@@ -20,8 +20,8 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
     private val MIN_SWEEP_ANGLE = 30
 
     private val fBounds = RectF()
-    private var mObjectAnimatorSweep: ObjectAnimator? = null
-    private var mObjectAnimatorAngle: ObjectAnimator? = null
+    private lateinit var mObjectAnimatorSweep: ObjectAnimator
+    private lateinit var mObjectAnimatorAngle: ObjectAnimator
     private var mModeAppearing = false
     private val mPaint: Paint = Paint()
     private var mCurrentGlobalAngleOffset = 0f
@@ -90,16 +90,16 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
 
     private fun setupAnimations() {
         mObjectAnimatorAngle = ObjectAnimator.ofFloat(this, mAngleProperty, mAngle.toFloat())
-        mObjectAnimatorAngle!!.interpolator = ANGLE_INTERPOLATOR
-        mObjectAnimatorAngle!!.duration = ANGLE_ANIMATOR_DURATION.toLong()
-        mObjectAnimatorAngle!!.repeatMode = ValueAnimator.RESTART
-        mObjectAnimatorAngle!!.repeatCount = ValueAnimator.INFINITE
+        mObjectAnimatorAngle.interpolator = ANGLE_INTERPOLATOR
+        mObjectAnimatorAngle.duration = ANGLE_ANIMATOR_DURATION.toLong()
+        mObjectAnimatorAngle.repeatMode = ValueAnimator.RESTART
+        mObjectAnimatorAngle.repeatCount = ValueAnimator.INFINITE
         mObjectAnimatorSweep = ObjectAnimator.ofFloat(this, mSweepProperty, mAngle.toFloat() - MIN_SWEEP_ANGLE * 2)
-        mObjectAnimatorSweep!!.interpolator = SWEEP_INTERPOLATOR
-        mObjectAnimatorSweep!!.duration = SWEEP_ANIMATOR_DURATION.toLong()
-        mObjectAnimatorSweep!!.repeatMode = ValueAnimator.RESTART
-        mObjectAnimatorSweep!!.repeatCount = ValueAnimator.INFINITE
-        mObjectAnimatorSweep!!.addListener(object : Animator.AnimatorListener {
+        mObjectAnimatorSweep.interpolator = SWEEP_INTERPOLATOR
+        mObjectAnimatorSweep.duration = SWEEP_ANIMATOR_DURATION.toLong()
+        mObjectAnimatorSweep.repeatMode = ValueAnimator.RESTART
+        mObjectAnimatorSweep.repeatCount = ValueAnimator.INFINITE
+        mObjectAnimatorSweep.addListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
             override fun onAnimationEnd(animation: Animator) {}
             override fun onAnimationCancel(animation: Animator) {}
