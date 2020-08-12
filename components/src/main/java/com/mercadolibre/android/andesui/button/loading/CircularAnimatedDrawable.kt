@@ -64,43 +64,46 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
     }
 
     private val mAngleProperty: Property<CircularAnimatedDrawable, Float> = object : Property<CircularAnimatedDrawable, Float>(Float::class.java, null) {
-        override fun get(`object`: CircularAnimatedDrawable): Float {
-            return `object`.currentGlobalAngle
+        override fun get(`circularAnimatedDrawable`: CircularAnimatedDrawable): Float {
+            return `circularAnimatedDrawable`.currentGlobalAngle
         }
 
-        override fun set(`object`: CircularAnimatedDrawable, value: Float) {
-            `object`.currentGlobalAngle = value
+        override fun set(`circularAnimatedDrawable`: CircularAnimatedDrawable, value: Float) {
+            `circularAnimatedDrawable`.currentGlobalAngle = value
         }
     }
     private val mSweepProperty: Property<CircularAnimatedDrawable, Float> = object : Property<CircularAnimatedDrawable, Float>(Float::class.java, null) {
-        override fun get(`object`: CircularAnimatedDrawable): Float {
-            return `object`.currentSweepAngle
+        override fun get(`circularAnimatedDrawable`: CircularAnimatedDrawable): Float {
+            return `circularAnimatedDrawable`.currentSweepAngle
         }
 
-        override fun set(`object`: CircularAnimatedDrawable, value: Float) {
-            `object`.currentSweepAngle = value
+        override fun set(`circularAnimatedDrawable`: CircularAnimatedDrawable, value: Float) {
+            `circularAnimatedDrawable`.currentSweepAngle = value
         }
     }
 
     private fun setupAnimations() {
-        mObjectAnimatorAngle = ObjectAnimator.ofFloat(this, mAngleProperty, mAngle.toFloat())
-        mObjectAnimatorAngle.interpolator = ANGLE_INTERPOLATOR
-        mObjectAnimatorAngle.duration = ANGLE_ANIMATOR_DURATION.toLong()
-        mObjectAnimatorAngle.repeatMode = ValueAnimator.RESTART
-        mObjectAnimatorAngle.repeatCount = ValueAnimator.INFINITE
-        mObjectAnimatorSweep = ObjectAnimator.ofFloat(this, mSweepProperty, mAngle.toFloat() - MIN_SWEEP_ANGLE * 2)
-        mObjectAnimatorSweep.interpolator = SWEEP_INTERPOLATOR
-        mObjectAnimatorSweep.duration = SWEEP_ANIMATOR_DURATION.toLong()
-        mObjectAnimatorSweep.repeatMode = ValueAnimator.RESTART
-        mObjectAnimatorSweep.repeatCount = ValueAnimator.INFINITE
-        mObjectAnimatorSweep.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator) {}
-            override fun onAnimationEnd(animation: Animator) {}
-            override fun onAnimationCancel(animation: Animator) {}
-            override fun onAnimationRepeat(animation: Animator) {
-                toggleAppearingMode()
-            }
-        })
+        mObjectAnimatorAngle = ObjectAnimator.ofFloat(this, mAngleProperty, mAngle.toFloat()).apply {
+            interpolator = ANGLE_INTERPOLATOR
+            duration = ANGLE_ANIMATOR_DURATION.toLong()
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = ValueAnimator.INFINITE
+        }
+
+        mObjectAnimatorSweep = ObjectAnimator.ofFloat(this, mSweepProperty, mAngle.toFloat() - MIN_SWEEP_ANGLE * 2).apply {
+            interpolator = SWEEP_INTERPOLATOR
+            duration = SWEEP_ANIMATOR_DURATION.toLong()
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = ValueAnimator.INFINITE
+            addListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {}
+                override fun onAnimationEnd(animation: Animator) {}
+                override fun onAnimationCancel(animation: Animator) {}
+                override fun onAnimationRepeat(animation: Animator) {
+                    toggleAppearingMode()
+                }
+            })
+        }
     }
 
     override fun start() {
