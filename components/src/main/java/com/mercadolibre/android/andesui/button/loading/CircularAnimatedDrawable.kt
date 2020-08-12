@@ -13,12 +13,6 @@ import android.view.animation.LinearInterpolator
 
 internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Float) : Drawable(), Animatable {
 
-    private val ANGLE_INTERPOLATOR: Interpolator = LinearInterpolator()
-    private val SWEEP_INTERPOLATOR: Interpolator = DecelerateInterpolator()
-    private val ANGLE_ANIMATOR_DURATION = 1000
-    private val SWEEP_ANIMATOR_DURATION = 1000
-    private val MIN_SWEEP_ANGLE = 30
-
     private val fBounds = RectF()
     private lateinit var mObjectAnimatorSweep: ObjectAnimator
     private lateinit var mObjectAnimatorAngle: ObjectAnimator
@@ -114,8 +108,8 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
             return
         }
         mRunning = true
-        mObjectAnimatorAngle!!.start()
-        mObjectAnimatorSweep!!.start()
+        mObjectAnimatorAngle.start()
+        mObjectAnimatorSweep.start()
         invalidateSelf()
     }
 
@@ -124,8 +118,8 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
             return
         }
         mRunning = false
-        mObjectAnimatorAngle!!.cancel()
-        mObjectAnimatorSweep!!.cancel()
+        mObjectAnimatorAngle.cancel()
+        mObjectAnimatorSweep.cancel()
         invalidateSelf()
     }
 
@@ -153,5 +147,13 @@ internal class CircularAnimatedDrawable(color: Int, private val mBorderWidth: Fl
         mPaint.strokeWidth = mBorderWidth
         mPaint.color = color
         setupAnimations()
+    }
+
+    companion object{
+        private val ANGLE_INTERPOLATOR: Interpolator = LinearInterpolator()
+        private val SWEEP_INTERPOLATOR: Interpolator = DecelerateInterpolator()
+        private const val ANGLE_ANIMATOR_DURATION = 1000
+        private const val SWEEP_ANIMATOR_DURATION = 1000
+        private const val MIN_SWEEP_ANGLE = 30
     }
 }

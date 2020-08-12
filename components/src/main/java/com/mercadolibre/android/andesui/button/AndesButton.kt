@@ -22,8 +22,8 @@ import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonIcon
 import com.mercadolibre.android.andesui.button.hierarchy.BackgroundColorConfig
 import com.mercadolibre.android.andesui.button.hierarchy.getConfiguredBackground
 import com.mercadolibre.android.andesui.button.loading.LoadingView
-import com.mercadolibre.android.andesui.button.loading.SavedState
 import com.mercadolibre.android.andesui.button.size.AndesButtonSize
+import kotlinx.android.parcel.Parcelize
 
 /**
  * User interface element the user can tap or click to perform an action.
@@ -62,14 +62,12 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSize
  */
 class AndesButton : ConstraintLayout {
 
-    private val STRING_EMPTY_VALUE = ""
-
     private lateinit var andesButtonAttrs: AndesButtonAttrs
     internal lateinit var leftIconComponent: SimpleDraweeView
     internal lateinit var rightIconComponent: SimpleDraweeView
     internal lateinit var textComponent: TextView
     internal lateinit var loadingView: LoadingView
-    internal lateinit var currentText:String
+    internal lateinit var currentText: String
 
     /**
      * Getter and setter for [text].
@@ -112,23 +110,19 @@ class AndesButton : ConstraintLayout {
      * Getter and setter for [isLoading].
      */
     var isLoading: Boolean
-        get(){
-        return loadingView.isLoading
-    }
+        get() = loadingView.isLoading
     set(value) {
         loadingView.isLoading = value
 
         if (value && text.toString().isNotEmpty()){
             currentText = text.toString()
             text = STRING_EMPTY_VALUE
-
             leftIconComponent.visibility = View.GONE
             rightIconComponent.visibility = View.GONE
         }
 
         if (!value && text.toString().isEmpty()){
             text = currentText
-
             leftIconComponent.visibility = View.VISIBLE
             rightIconComponent.visibility = View.VISIBLE
         }
@@ -431,9 +425,7 @@ class AndesButton : ConstraintLayout {
      */
     override fun onSaveInstanceState(): Parcelable? {
         var superState = super.onSaveInstanceState()
-        var state = SavedState(superState)
-        state.isLoading = isLoading
-        state.text = text.toString()
+        var state = SavedState(isLoading, text.toString(), superState)
         return state
     }
 
@@ -458,5 +450,13 @@ class AndesButton : ConstraintLayout {
         private val HIERARCHY_DEFAULT = AndesButtonHierarchy.LOUD
         private val SIZE_DEFAULT = AndesButtonSize.LARGE
         private val ICON_DEFAULT = null
+        private const val STRING_EMPTY_VALUE = ""
     }
+
+    @Parcelize
+    data class SavedState(
+            var isLoading: Boolean,
+            var text: String,
+            var superState: Parcelable
+    ) : Parcelable
 }

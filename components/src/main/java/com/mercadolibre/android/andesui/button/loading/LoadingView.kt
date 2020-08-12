@@ -6,7 +6,7 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
 
-class LoadingView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int? = 0) : View(context, attrs, defStyleAttr!!) {
+class LoadingView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
     private lateinit var mAnimatedDrawable: CircularAnimatedDrawable
     private val mStrokeWidth = 8
