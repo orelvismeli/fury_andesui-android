@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="andes_progress_xlarge">48dp</dimen>
+    <dimen name="andes_progress_large">32dp</dimen>
+    <dimen name="andes_progress_medium">24dp</dimen>
+    <dimen name="andes_progress_small">16dp</dimen>
+
+</resources>

@@ -49,7 +49,7 @@ android {
             res.srcDirs = ['src/main/res', 'src/main/res/button', 'src/main/res/message', 'src/main/res/textfield',
                            'src/main/res/badge', 'src/main/res/snackbar', 'src/main/res/tag', 'src/main/res/checkbox',
                            'src/main/res/radiobutton', 'src/main/res/radiobuttongroup', 'src/main/res/thumbnail',
-                           'src/main/res/card']
+                           'src/main/res/card', 'src/main/res/progress']
         }
     }
 }

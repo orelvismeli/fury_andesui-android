@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="AndesProgress" tools:ignore="ResourceName">
+
+        <attr name="andesProgressSize" format="enum">
+            <enum name="xlarge" value="200" />
+            <enum name="large" value="201" />
+            <enum name="medium" value="202" />
+            <enum name="small" value="203" />
+        </attr>
+
+        <attr name="andesProgressTint" format="integer" />
+    </declare-styleable>
+</resources>

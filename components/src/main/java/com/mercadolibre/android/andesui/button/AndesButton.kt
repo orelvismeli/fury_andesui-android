@@ -1,6 +1,8 @@
 package com.mercadolibre.android.andesui.button
 
+import android.content.ContentUris
 import android.content.Context
+import android.net.Uri
 import android.os.Build
 import android.os.Parcelable
 import android.support.constraint.ConstraintLayout
@@ -21,8 +23,9 @@ import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonHierarchy
 import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonIcon
 import com.mercadolibre.android.andesui.button.hierarchy.BackgroundColorConfig
 import com.mercadolibre.android.andesui.button.hierarchy.getConfiguredBackground
-import com.mercadolibre.android.andesui.button.loading.LoadingView
 import com.mercadolibre.android.andesui.button.size.AndesButtonSize
+import com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
+import com.mercadolibre.android.andesui.progress.size.AndesProgressSize
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -63,11 +66,11 @@ import kotlinx.android.parcel.Parcelize
 class AndesButton : ConstraintLayout {
 
     private lateinit var andesButtonAttrs: AndesButtonAttrs
-    internal lateinit var leftIconComponent: SimpleDraweeView
-    internal lateinit var rightIconComponent: SimpleDraweeView
     internal lateinit var textComponent: TextView
-    internal lateinit var loadingView: LoadingView
-    internal lateinit var currentText: String
+    internal lateinit var loadingView :AndesProgressIndicatorIndeterminate
+
+    lateinit var leftIconComponent: SimpleDraweeView
+    lateinit var rightIconComponent: SimpleDraweeView
 
     /**
      * Getter and setter for [text].
@@ -110,19 +113,17 @@ class AndesButton : ConstraintLayout {
      * Getter and setter for [isLoading].
      */
     var isLoading: Boolean
-        get() = loadingView.isLoading
+        get() = loadingView.visibility == View.VISIBLE
     set(value) {
-        loadingView.isLoading = value
 
-        if (value && text.toString().isNotEmpty()){
-            currentText = text.toString()
-            text = STRING_EMPTY_VALUE
-            leftIconComponent.visibility = View.GONE
-            rightIconComponent.visibility = View.GONE
-        }
-
-        if (!value && text.toString().isEmpty()){
-            text = currentText
+        if (value){
+            textComponent.visibility = View.INVISIBLE
+            loadingView.visibility = View.VISIBLE
+            leftIconComponent.visibility = View.INVISIBLE
+            rightIconComponent.visibility = View.INVISIBLE
+        }else{
+            textComponent.visibility = View.VISIBLE
+            loadingView.visibility = View.GONE
             leftIconComponent.visibility = View.VISIBLE
             rightIconComponent.visibility = View.VISIBLE
         }
@@ -221,10 +222,10 @@ class AndesButton : ConstraintLayout {
         updateDynamicComponents(config)
         setupIsLoadingView(config)
 
+        addView(loadingView)
         addView(textComponent)
         addView(leftIconComponent)
         addView(rightIconComponent)
-        addView(loadingView)
 
         updateComponentsAlignment(config)
     }
@@ -237,7 +238,9 @@ class AndesButton : ConstraintLayout {
         setupTextComponent(config)
         setupLeftIconComponent(config)
         setupRightIconComponent(config)
-        setupLoadingComponent(config)
+
+        if (isLoading)
+            setupLoadingComponent(config)
 
         background = config.background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -288,7 +291,7 @@ class AndesButton : ConstraintLayout {
         leftIconComponent.id = View.generateViewId()
         rightIconComponent = SimpleDraweeView(context)
         rightIconComponent.id = View.generateViewId()
-        loadingView = LoadingView(context)
+        loadingView = AndesProgressIndicatorIndeterminate(context)
         loadingView.id = View.generateViewId()
     }
 
@@ -324,6 +327,9 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupIsLoadingView(config: AndesButtonConfiguration) {
+        if (!config.isLoading)
+            loadingView.visibility = View.GONE
+
         isLoading = config.isLoading
     }
 
@@ -386,8 +392,20 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupLoadingComponent(config: AndesButtonConfiguration) {
-        loadingView.setParentHeight(config.height)
-        loadingView.setLoadingColor(config.textColor)
+        when(size){
+            AndesButtonSize.LARGE ->{
+                loadingView.size = AndesProgressSize.LARGE
+            }
+            AndesButtonSize.MEDIUM ->{
+                loadingView.size = AndesProgressSize.MEDIUM
+            }
+            AndesButtonSize.SMALL ->{
+                loadingView.size = AndesProgressSize.SMALL
+            }
+        }
+
+        loadingView.tint = config.textColor.getColorForState(drawableState,0)
+
     }
 
     /**
@@ -425,7 +443,7 @@ class AndesButton : ConstraintLayout {
      */
     override fun onSaveInstanceState(): Parcelable? {
         var superState = super.onSaveInstanceState()
-        var state = SavedState(isLoading, text.toString(), superState)
+        var state = SavedState(isLoading, superState)
         return state
     }
 
@@ -435,7 +453,6 @@ class AndesButton : ConstraintLayout {
     override fun onRestoreInstanceState(state: Parcelable?) {
         if (state is SavedState) {
             isLoading = state.isLoading
-            text = state.text
             super.onRestoreInstanceState(state.superState)
             return
         }
@@ -450,13 +467,11 @@ class AndesButton : ConstraintLayout {
         private val HIERARCHY_DEFAULT = AndesButtonHierarchy.LOUD
         private val SIZE_DEFAULT = AndesButtonSize.LARGE
         private val ICON_DEFAULT = null
-        private const val STRING_EMPTY_VALUE = ""
     }
 
     @Parcelize
     data class SavedState(
             var isLoading: Boolean,
-            var text: String,
             var superState: Parcelable
     ) : Parcelable
 }

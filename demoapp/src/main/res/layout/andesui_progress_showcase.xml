@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/andes_white">
+
+    <LinearLayout
+        android:id="@+id/andes_loud_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:andesProgressSize="xlarge"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:text="@string/andesui_demoapp_progress_xlarge"/>
+
+        <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:andesProgressSize="large"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:text="@string/andesui_demoapp_progress_large"/>
+
+        <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:andesProgressSize="medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:text="@string/andesui_demoapp_progress_medium"/>
+
+        <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:andesProgressSize="small"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:text="@string/andesui_demoapp_progress_small"/>
+
+
+    </LinearLayout>
+</ScrollView>

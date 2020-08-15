@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.facebook.drawee.view.SimpleDraweeView
 import kotlinx.android.synthetic.main.andesui_demoapp_main.*
 
 /**
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setupMessages()
         setupTextfield()
         setupThumbnails()
+        setupProgress()
         setupWhatsNew()
         setupContributionTrigger()
         setupAndesSpecsWeb()
@@ -91,6 +93,12 @@ class MainActivity : AppCompatActivity() {
     private fun setupThumbnails() {
         andesui_thumbnail.setOnClickListener {
             launchIntent("meli://andes/thumbnail")
+        }
+    }
+
+    private fun setupProgress() {
+        andesui_progress.setOnClickListener {
+            launchIntent("meli://andes/progress")
         }
     }
 

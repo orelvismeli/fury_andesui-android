@@ -192,6 +192,12 @@
     <string name="andesui_demoapp_card_example_4">Andes card without title, style outline, hierarchy primary, type highlight, padding small and without action link.</string>
     <string name="andesui_demoapp_card_example_5">Andes card with title, hierarchy secondary_dark and padding medium.</string>
 
+    <string name="andesui_demoapp_progress">Andes Progress</string>
+    <string name="andesui_demoapp_progress_xlarge">XLARGE</string>
+    <string name="andesui_demoapp_progress_large">LARGE</string>
+    <string name="andesui_demoapp_progress_medium">MEDIUM</string>
+    <string name="andesui_demoapp_progress_small">SMALL</string>
+
     <string-array name="state_spinner">
         <item>Neutral</item>
         <item>Success</item>
