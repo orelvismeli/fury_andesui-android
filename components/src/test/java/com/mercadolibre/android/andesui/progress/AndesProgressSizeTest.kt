@@ -16,7 +16,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.LOLLIPOP])
-class AndesLargeButtonSizeTest {
+class AndesProgressSizeTest {
     private var andesXLargeProgressSize = Mockito.spy(AndesXLargeProgressSize())
     private var andesLargeProgressSize = Mockito.spy(AndesLargeProgressSize())
     private var andesMediumProgressSize = Mockito.spy(AndesMediumProgressSize())
@@ -42,5 +42,4 @@ class AndesLargeButtonSizeTest {
     fun `Small progress size`() {
         assertEquals(andesSmallPogressSize.size(context), 16F)
     }
-
 }

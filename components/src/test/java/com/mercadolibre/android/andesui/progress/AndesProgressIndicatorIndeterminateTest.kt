@@ -67,7 +67,8 @@ class AndesProgressIndicatorIndeterminateTest {
 
     @Test
     fun `Size Small and color `() {
-        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.SMALL, context.resources.getColor(R.color.andes_yellow_ml_500))
+        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.SMALL,
+                context.resources.getColor(R.color.andes_yellow_ml_500))
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 16F)

@@ -178,15 +178,18 @@ internal object AndesButtonConfigurationFactory {
      * @param size determined size of the button: Needed because the height depends on this.
      * @param context needed for accessing some resources.
      */
-    private fun resolveHeight(size: AndesButtonSizeInterface, context: Context) = size.height(context)
+    private fun resolveHeight(size: AndesButtonSizeInterface, context: Context) =
+            size.height(context)
 
     /**
      * Determines the [Typeface] from certain parameters that receives.
      *
-     * @param hierarchy determined hierarchy of the button: Needed because hierarchy is in charge of solving this.
+     * @param hierarchy determined hierarchy of the button:
+     * Needed because hierarchy is in charge of solving this.
      * @param context needed for accessing font resources.
      */
-    private fun resolveTypeface(hierarchy: AndesButtonHierarchyInterface, context: Context) = hierarchy.typeface(context)
+    private fun resolveTypeface(hierarchy: AndesButtonHierarchyInterface, context: Context) =
+            hierarchy.typeface(context)
 
     /**
      * Determines the [IconConfig] from certain parameters that receives.
@@ -210,7 +213,8 @@ internal object AndesButtonConfigurationFactory {
      *
      * @param typedArray needed for accessing boolean value.
      */
-    private fun resolveEnabled(typedArray: TypedArray) = typedArray.getBoolean(R.styleable.AndesButton_andesButtonEnabled, true)
+    private fun resolveEnabled(typedArray: TypedArray) =
+            typedArray.getBoolean(R.styleable.AndesButton_andesButtonEnabled, true)
 
     /**
      * Determines the padding of the button.

@@ -100,7 +100,12 @@ internal interface AndesButtonSizeInterface {
      * @param context needed for accessing some resources.
      * @return an [IconConfig] that holds the icons to be used in the button.
      */
-    fun iconConfig(hierarchy: AndesButtonHierarchyInterface, leftIcon: String?, rightIcon: String?, context: Context): IconConfig?
+    fun iconConfig(
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIcon: String?,
+        rightIcon: String?,
+        context: Context
+    ): IconConfig?
 
     /**
      * Checks if the current size can display an icon.
@@ -118,14 +123,23 @@ internal interface AndesButtonSizeInterface {
  */
 internal class AndesLargeButtonSize : AndesButtonSizeInterface {
 
-    override fun textSize(context: Context) = context.resources.getDimension(R.dimen.andes_text_size_button_large)
-    override fun height(context: Context) = context.resources.getDimension(R.dimen.andes_button_height_large)
-    override fun textLeftMargin(context: Context) = context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
-    override fun textRightMargin(context: Context) = context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
-    override fun leftIconRightMargin(context: Context) = context.resources.getDimension(R.dimen.andes_button_left_icon_right_margin).toInt()
-    override fun rightIconLeftMargin(context: Context) = context.resources.getDimension(R.dimen.andes_button_right_icon_left_margin).toInt()
-    override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_large).toInt()
-    override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_large)
+    override fun textSize(context: Context) =
+            context.resources.getDimension(R.dimen.andes_text_size_button_large)
+    override fun height(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_height_large)
+    override fun textLeftMargin(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
+    override fun textRightMargin(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
+    override fun leftIconRightMargin(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_left_icon_right_margin).toInt()
+    override fun rightIconLeftMargin(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_right_icon_left_margin).toInt()
+    override fun lateralPadding(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_lateral_padding_large).toInt()
+    override fun cornerRadius(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_border_radius_large)
+
     override fun iconConfig(
         hierarchy: AndesButtonHierarchyInterface,
         leftIcon: String?,
@@ -169,17 +183,22 @@ internal class AndesLargeButtonSize : AndesButtonSizeInterface {
 }
 
 /**
- * Implementation of [AndesButtonSizeInterface] that returns the required data but personalized for the Medium Size,
+ * Implementation of [AndesButtonSizeInterface] that returns the required data
+ * but personalized for the Medium Size,
  * according to Andes specifications.
  *
  */
 internal class AndesMediumButtonSize : AndesButtonSizeInterface {
-    override fun textSize(context: Context) = context.resources.getDimension(R.dimen.andes_text_size_button_medium)
-    override fun height(context: Context) = context.resources.getDimension(R.dimen.andes_button_height_medium)
+    override fun textSize(context: Context) =
+            context.resources.getDimension(R.dimen.andes_text_size_button_medium)
+    override fun height(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_height_medium)
     override fun textLeftMargin(context: Context) = 0
     override fun textRightMargin(context: Context) = 0
-    override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_medium).toInt()
-    override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_medium)
+    override fun lateralPadding(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_lateral_padding_medium).toInt()
+    override fun cornerRadius(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_border_radius_medium)
     override fun iconConfig(
         hierarchy: AndesButtonHierarchyInterface,
         leftIcon: String?,
@@ -194,8 +213,10 @@ internal class AndesMediumButtonSize : AndesButtonSizeInterface {
  *
  */
 internal class AndesSmallButtonSize : AndesButtonSizeInterface {
-    override fun textSize(context: Context) = context.resources.getDimension(R.dimen.andes_text_size_button_small)
-    override fun height(context: Context) = context.resources.getDimension(R.dimen.andes_button_height_small)
+    override fun textSize(context: Context) =
+            context.resources.getDimension(R.dimen.andes_text_size_button_small)
+    override fun height(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_height_small)
     override fun textLeftMargin(context: Context) = 0
     override fun textRightMargin(context: Context) = 0
     override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_small).toInt()

@@ -169,7 +169,8 @@ class AndesButton : ConstraintLayout {
      * Constructor for creating an AndesButton via XML.
      * The [attrs] are the attributes specified in the parameters of XML.
      *
-     * Hope you are using the parameters specified in attrs.xml file: andesButtonHierarchy, andesButtonSize, andesButtonLeftIconCustom, etc.
+     * Hope you are using the parameters specified in attrs.xml
+     * file: andesButtonHierarchy, andesButtonSize, andesButtonLeftIconCustom, etc.
      */
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         initAttrs(attrs)
@@ -206,7 +207,11 @@ class AndesButton : ConstraintLayout {
         buttonIcon: AndesButtonIcon?,
         text: String?
     ) {
-        andesButtonAttrs = AndesButtonAttrs(buttonHierarchy, buttonSize, buttonIcon?.leftIcon, buttonIcon?.rightIcon, text)
+        andesButtonAttrs = AndesButtonAttrs(buttonHierarchy,
+                buttonSize,
+                buttonIcon?.leftIcon,
+                buttonIcon?.rightIcon,
+                text)
         setupComponents(createConfig())
     }
 
@@ -243,8 +248,7 @@ class AndesButton : ConstraintLayout {
         setupLeftIconComponent(config)
         setupRightIconComponent(config)
 
-        if (isLoading)
-            setupLoadingComponent(config)
+        if (isLoading) setupLoadingComponent(config)
 
         background = config.background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -344,8 +348,7 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupIsLoadingView(config: AndesButtonConfiguration) {
-        if (!config.isLoading)
-            loadingView.visibility = View.GONE
+        if (!config.isLoading) loadingView.visibility = View.GONE
 
         isLoading = config.isLoading
     }
@@ -451,7 +454,9 @@ class AndesButton : ConstraintLayout {
     }
 
     internal fun changeBackgroundColor(backgroundColorConfig: BackgroundColorConfig) {
-        background = getConfiguredBackground(context, context.resources.getDimension(R.dimen.andes_button_border_radius_medium), backgroundColorConfig)
+        background = getConfiguredBackground(context,
+                context.resources.getDimension(R.dimen.andes_button_border_radius_medium),
+                backgroundColorConfig)
     }
 
     /**
@@ -484,8 +489,7 @@ class AndesButton : ConstraintLayout {
     ) {
         var icon: SimpleDraweeView = leftIconComponent
 
-        if (!leftIconPosition)
-            icon = rightIconComponent
+        if (!leftIconPosition) icon = rightIconComponent
 
         val listener: ControllerListener<ImageInfo> = object : BaseControllerListener<ImageInfo>() {
             override fun onIntermediateImageSet(id: String?, imageInfo: ImageInfo?) {
