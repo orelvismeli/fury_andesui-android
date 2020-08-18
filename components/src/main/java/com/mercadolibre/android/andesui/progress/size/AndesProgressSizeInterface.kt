@@ -2,7 +2,6 @@ package com.mercadolibre.android.andesui.progress.size
 
 import android.content.Context
 import com.mercadolibre.android.andesui.R
-import com.mercadolibre.android.andesui.button.AndesButton
 
 /**
  * Defines all size related properties that an [AndesProgress] needs to be drawn properly.
