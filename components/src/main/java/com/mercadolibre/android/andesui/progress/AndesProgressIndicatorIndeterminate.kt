@@ -1,15 +1,10 @@
 package com.mercadolibre.android.andesui.progress
 
-import android.R.attr.mode
 import android.content.Context
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.util.AttributeSet
 import android.view.View
-import android.widget.ProgressBar
 import com.mercadolibre.android.andesui.progress.factory.AndesProgressAttrs
 import com.mercadolibre.android.andesui.progress.factory.AndesProgressAttrsParser
 import com.mercadolibre.android.andesui.progress.factory.AndesProgressConfiguration
@@ -20,7 +15,7 @@ import com.mercadolibre.android.andesui.progress.size.AndesProgressSize
 class AndesProgressIndicatorIndeterminate: ConstraintLayout {
 
     private lateinit var andesProgressAttr: AndesProgressAttrs
-    internal lateinit var progressComponent: ProgressBar
+    internal lateinit var progressComponent: LoadingSpinner
 
     var tint: Int
         get() = andesProgressAttr.tint
@@ -46,7 +41,6 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
     constructor(context: Context) : super(context){
         initAttrs(SIZE_DEFAULT, TINT)
     }
-
 
     /**
      * Constructor for creating an AndesProgress via XML.
@@ -78,7 +72,8 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
     }
 
     private fun initComponents() {
-        progressComponent = ProgressBar(context)
+        progressComponent = LoadingSpinner(context)
+        progressComponent.start()
     }
 
     private fun setupComponents(config: AndesProgressConfiguration) {
@@ -114,23 +109,10 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
 
     private fun setupProgressComponent() {
         progressComponent.id = View.generateViewId()
-        progressComponent.isIndeterminate = true
     }
 
     private fun setupColor(config: AndesProgressConfiguration) {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-
-            val progressDrawable: Drawable = (if (progressComponent.isIndeterminate)
-                progressComponent.indeterminateDrawable
-            else
-                progressComponent.progressDrawable).mutate()
-
-            progressDrawable.setColorFilter(config.tint, PorterDuff.Mode.SRC_ATOP)
-            progressComponent.progressDrawable = progressDrawable
-        } else {
-            progressComponent.indeterminateDrawable.setColorFilter(config.tint, PorterDuff.Mode.SRC_ATOP)
-        }
+        progressComponent.setPrimaryColor(config.tint)
     }
 
     private fun setupSize(config: AndesProgressConfiguration) {

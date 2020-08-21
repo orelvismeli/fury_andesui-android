@@ -133,7 +133,6 @@ class AndesButton : ConstraintLayout {
         }
 
         createConfig().also {
-            // updateDynamicComponents(it)
             updateComponentsAlignment(it)
         }
     }
