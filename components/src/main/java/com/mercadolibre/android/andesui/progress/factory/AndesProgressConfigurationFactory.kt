@@ -2,11 +2,13 @@ package com.mercadolibre.android.andesui.progress.factory
 
 import android.content.Context
 import com.mercadolibre.android.andesui.R
+import com.mercadolibre.android.andesui.progress.size.AndesProgressSize
 import com.mercadolibre.android.andesui.progress.size.AndesProgressSizeInterface
 
 internal data class AndesProgressConfiguration(
     val tint: Int = 0,
-    val size: Float
+    val size: Float,
+    val stroke: Int
 )
 
 internal object AndesProgressConfigurationFactory {
@@ -15,7 +17,8 @@ internal object AndesProgressConfigurationFactory {
 
         return AndesProgressConfiguration(
                 tint = resolveColor(context, andesProgressAttrs.tint),
-                size = resolveSize(context, andesProgressAttrs.andesProgressSize.size)
+                size = resolveSize(context, andesProgressAttrs.andesProgressSize.size),
+                stroke = resolveStroke(context, andesProgressAttrs.andesProgressSize)
         )
     }
 
@@ -27,5 +30,24 @@ internal object AndesProgressConfigurationFactory {
             return context.resources.getColor(R.color.andes_blue_ml_500)
         }
         return tint
+    }
+
+    private fun resolveStroke(context: Context, andesProgressSize: AndesProgressSize): Int {
+        var stroke = 5
+        when(andesProgressSize){
+            AndesProgressSize.XLARGE ->{
+                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_xlarge).toInt()
+            }
+            AndesProgressSize.LARGE ->{
+                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_large).toInt()
+            }
+            AndesProgressSize.MEDIUM ->{
+                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_medium).toInt()
+            }
+            AndesProgressSize.SMALL ->{
+                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_small).toInt()
+            }
+        }
+        return stroke
     }
 }

@@ -6,4 +6,9 @@
     <dimen name="andes_progress_medium">24dp</dimen>
     <dimen name="andes_progress_small">16dp</dimen>
 
+    <dimen name="andes_progress_stroke_xlarge">8px</dimen>
+    <dimen name="andes_progress_stroke_large">7px</dimen>
+    <dimen name="andes_progress_stroke_medium">6px</dimen>
+    <dimen name="andes_progress_stroke_small">5px</dimen>
+
 </resources>

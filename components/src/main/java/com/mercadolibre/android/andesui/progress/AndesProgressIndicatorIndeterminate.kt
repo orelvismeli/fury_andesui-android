@@ -83,6 +83,7 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
         setupProgressComponent()
         setupColor(config)
         setupSize(config)
+        setupStroke(config)
 
         addView(progressComponent)
 
@@ -118,6 +119,10 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
     private fun setupSize(config: AndesProgressConfiguration) {
         val params = LayoutParams(config.size.toInt(), config.size.toInt())
         progressComponent.layoutParams = params
+    }
+
+    private fun setupStroke(config: AndesProgressConfiguration) {
+        progressComponent.setStrokeSize(config.stroke)
     }
 
     companion object {
