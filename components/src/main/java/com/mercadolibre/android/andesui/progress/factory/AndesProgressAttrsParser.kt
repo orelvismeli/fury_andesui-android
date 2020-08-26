@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.progress.size.AndesProgressSize
 
-
 /**
  * The data class that contains the public components of the button.
  */
