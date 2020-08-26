@@ -101,6 +101,10 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
         set.applyTo(this)
     }
 
+    /**
+     * Sets a view id to this Progress.
+     *
+     */
     private fun setupViewId() {
         if (id == NO_ID) {
             id = View.generateViewId()
