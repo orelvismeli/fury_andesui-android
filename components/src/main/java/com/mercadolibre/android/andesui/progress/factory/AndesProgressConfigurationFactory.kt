@@ -33,21 +33,16 @@ internal object AndesProgressConfigurationFactory {
     }
 
     private fun resolveStroke(context: Context, andesProgressSize: AndesProgressSize): Int {
-        var stroke = 5
-        when(andesProgressSize){
-            AndesProgressSize.XLARGE ->{
-                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_xlarge).toInt()
-            }
-            AndesProgressSize.LARGE ->{
-                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_large).toInt()
-            }
-            AndesProgressSize.MEDIUM ->{
-                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_medium).toInt()
-            }
-            AndesProgressSize.SMALL ->{
-                stroke = context.resources.getDimension(R.dimen.andes_progress_stroke_small).toInt()
-            }
+        return when(andesProgressSize) {
+            AndesProgressSize.XLARGE ->
+                context.resources.getDimension(R.dimen.andes_progress_stroke_xlarge).toInt()
+            AndesProgressSize.LARGE ->
+                context.resources.getDimension(R.dimen.andes_progress_stroke_large).toInt()
+            AndesProgressSize.MEDIUM ->
+                context.resources.getDimension(R.dimen.andes_progress_stroke_medium).toInt()
+            AndesProgressSize.SMALL ->
+                context.resources.getDimension(R.dimen.andes_progress_stroke_small).toInt()
+            else -> context.resources.getDimension(R.dimen.andes_progress_stroke_small).toInt()
         }
-        return stroke
     }
 }
