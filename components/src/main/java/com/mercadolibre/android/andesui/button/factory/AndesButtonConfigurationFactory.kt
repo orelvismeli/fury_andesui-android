@@ -194,10 +194,16 @@ internal object AndesButtonConfigurationFactory {
     /**
      * Determines the [IconConfig] from certain parameters that receives.
      *
-     * @param size determined size of the button: Needed because having icon or not depends on this.
-     * @param hierarchy determined hierarchy of the button: Needed because hierarchy provides the color of the icon.
-     * @param leftIconPath determined icon path of the button. Needed because this is the icon to be resized and tinted to be used properly inside the button.
-     * @param rightIconPath determined icon path of the button. Needed because this is the icon to be resized and tinted to be used properly inside the button.
+     * @param size determined size of the button:
+     * Needed because having icon or not depends on this.
+     * @param hierarchy determined hierarchy of the button: Needed because
+     * hierarchy provides the color of the icon.
+     * @param leftIconPath determined icon path of the button.
+     * Needed because this is the icon to be resized and tinted
+     * to be used properly inside the button.
+     * @param rightIconPath determined icon path of the button.
+     * Needed because this is the icon to be resized and tinted
+     * to be used properly inside the button.
      * @param context needed for accessing some resources.
      */
     private fun resolveIconConfig(
@@ -219,7 +225,8 @@ internal object AndesButtonConfigurationFactory {
     /**
      * Determines the padding of the button.
      *
-     * @param size determined size of the button: Needed because the paddings are different for each size.
+     * @param size determined size of the button: Needed because the paddings
+     * are different for each size.
      * @param context needed for accesing dimen resources.
      */
     private fun resolveLateralPadding(size: AndesButtonSizeInterface, context: Context) = size.lateralPadding(context)

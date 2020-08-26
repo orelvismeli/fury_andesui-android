@@ -94,9 +94,14 @@ internal interface AndesButtonSizeInterface {
      * Returns an [IconConfig] that holds the icons to be used in the button.
      *
      *
-     * @param hierarchy determined hierarchy of the button: Needed because hierarchy provides the color of the icon.
-     * @param leftIcon determined icon of the button. Needed because this is the icon to be resized and tinted to be used properly inside the button.
-     * @param rightIcon determined icon of the button. Needed because this is the icon to be resized and tinted to be used properly inside the button.
+     * @param hierarchy determined hierarchy of the button:
+     * Needed because hierarchy provides the color of the icon.
+     * @param leftIcon determined icon of the button.
+     * Needed because this is the icon to be resized and tinted
+     * to be used properly inside the button.
+     * @param rightIcon determined icon of the button.
+     * Needed because this is the icon to be resized and tinted
+     * to be used properly inside the button.
      * @param context needed for accessing some resources.
      * @return an [IconConfig] that holds the icons to be used in the button.
      */
@@ -220,7 +225,8 @@ internal class AndesSmallButtonSize : AndesButtonSizeInterface {
     override fun textLeftMargin(context: Context) = 0
     override fun textRightMargin(context: Context) = 0
     override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_small).toInt()
-    override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_small)
+    override fun cornerRadius(context: Context) =
+            context.resources.getDimension(R.dimen.andes_button_border_radius_small)
     override fun iconConfig(
         hierarchy: AndesButtonHierarchyInterface,
         leftIcon: String?,
