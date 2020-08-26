@@ -119,21 +119,10 @@ class AndesButton : ConstraintLayout {
     var isLoading: Boolean
         get() = loadingView.visibility == View.VISIBLE
     set(value) {
-
-        if (value) {
-            textComponent.visibility = View.INVISIBLE
-            loadingView.visibility = View.VISIBLE
-            leftIconComponent.visibility = View.INVISIBLE
-            rightIconComponent.visibility = View.INVISIBLE
-        } else {
-            textComponent.visibility = View.VISIBLE
-            loadingView.visibility = View.GONE
-            leftIconComponent.visibility = View.VISIBLE
-            rightIconComponent.visibility = View.VISIBLE
-        }
-
+        andesButtonAttrs = andesButtonAttrs.copy(andesButtonIsLoading = value)
         createConfig().also {
             updateComponentsAlignment(it)
+            updateDynamicComponents(it)
         }
     }
 
@@ -246,8 +235,7 @@ class AndesButton : ConstraintLayout {
         setupTextComponent(config)
         setupLeftIconComponent(config)
         setupRightIconComponent(config)
-
-        if (isLoading) setupLoadingComponent(config)
+        setupLoadingComponent(config)
 
         background = config.background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -347,8 +335,6 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupIsLoadingView(config: AndesButtonConfiguration) {
-        if (!config.isLoading) loadingView.visibility = View.GONE
-
         isLoading = config.isLoading
     }
 
@@ -411,19 +397,21 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupLoadingComponent(config: AndesButtonConfiguration) {
-        when (size) {
-            AndesButtonSize.LARGE -> {
-                loadingView.size = AndesProgressSize.LARGE
-            }
-            AndesButtonSize.MEDIUM -> {
-                loadingView.size = AndesProgressSize.MEDIUM
-            }
-            AndesButtonSize.SMALL -> {
-                loadingView.size = AndesProgressSize.SMALL
-            }
-        }
+        if (config.isLoading) {
 
-        loadingView.tint = config.textColor.getColorForState(drawableState, 0)
+            loadingView.size = AndesProgressSize.fromString(size.name)
+            loadingView.tint = config.textColor.getColorForState(drawableState, 0)
+
+            textComponent.visibility = View.INVISIBLE
+            loadingView.visibility = View.VISIBLE
+            leftIconComponent.visibility = View.INVISIBLE
+            rightIconComponent.visibility = View.INVISIBLE
+        }else{
+            textComponent.visibility = View.VISIBLE
+            loadingView.visibility = View.GONE
+            leftIconComponent.visibility = View.VISIBLE
+            rightIconComponent.visibility = View.VISIBLE
+        }
     }
 
     /**
