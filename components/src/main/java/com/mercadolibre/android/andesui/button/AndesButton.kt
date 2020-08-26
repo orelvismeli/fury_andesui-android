@@ -76,6 +76,8 @@ class AndesButton : ConstraintLayout {
     lateinit var leftIconComponent: SimpleDraweeView
     lateinit var rightIconComponent: SimpleDraweeView
 
+    private var customIcon = false
+
     /**
      * Getter and setter for [text].
      */
@@ -248,19 +250,6 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupConstraints(config: AndesButtonConfiguration) {
-
-        var iconRightMargin = config.margin.iconRightMargin
-        var textLeftMargin = config.margin.textLeftMargin
-        var iconLeftMargin = config.margin.iconLeftMargin
-        var textRightMargin = config.margin.textRightMargin
-
-        if (config.leftIcon == null && config.rightIcon == null) {
-            iconRightMargin = context.resources.getDimension(R.dimen.andes_button_left_icon_right_margin).toInt()
-            textLeftMargin = context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
-            iconLeftMargin = context.resources.getDimension(R.dimen.andes_button_right_icon_left_margin).toInt()
-            textRightMargin = context.resources.getDimension(R.dimen.andes_button_margin_large).toInt()
-        }
-
         val set = ConstraintSet()
         set.clone(this)
         set.createHorizontalChain(
@@ -274,10 +263,10 @@ class AndesButton : ConstraintLayout {
         set.centerVertically(leftIconComponent.id, ConstraintSet.PARENT_ID)
 
         set.centerVertically(textComponent.id, ConstraintSet.PARENT_ID)
-        set.setMargin(textComponent.id, ConstraintSet.START, iconRightMargin)
-        set.setGoneMargin(textComponent.id, ConstraintSet.START, textLeftMargin)
-        set.setMargin(textComponent.id, ConstraintSet.END, iconLeftMargin)
-        set.setGoneMargin(textComponent.id, ConstraintSet.END, textRightMargin)
+        set.setMargin(textComponent.id, ConstraintSet.START, config.margin.iconRightMargin)
+        set.setGoneMargin(textComponent.id, ConstraintSet.START, config.margin.textLeftMargin)
+        set.setMargin(textComponent.id, ConstraintSet.END, config.margin.iconLeftMargin)
+        set.setGoneMargin(textComponent.id, ConstraintSet.END, config.margin.textRightMargin)
 
         set.centerVertically(rightIconComponent.id, ConstraintSet.PARENT_ID)
 
@@ -367,8 +356,10 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupLeftIconComponent(config: AndesButtonConfiguration) {
-        leftIconComponent.setImageDrawable(config.leftIcon)
-        if (config.leftIcon == null) {
+        if (!customIcon)
+            leftIconComponent.setImageDrawable(config.leftIcon)
+
+        if (config.leftIcon == null && !customIcon) {
             leftIconComponent.visibility = View.GONE
         }
     }
@@ -379,8 +370,10 @@ class AndesButton : ConstraintLayout {
      *
      */
     private fun setupRightIconComponent(config: AndesButtonConfiguration) {
-        rightIconComponent.setImageDrawable(config.rightIcon)
-        if (config.rightIcon == null) {
+        if (!customIcon)
+            rightIconComponent.setImageDrawable(config.rightIcon)
+
+        if (config.rightIcon == null  && !customIcon) {
             rightIconComponent.visibility = View.GONE
         }
     }
@@ -474,9 +467,15 @@ class AndesButton : ConstraintLayout {
         pipelineDraweeControllerBuilder: PipelineDraweeControllerBuilder,
         leftIconPosition: Boolean = true
     ) {
+        customIcon = true
         var icon: SimpleDraweeView = leftIconComponent
+        andesButtonAttrs = andesButtonAttrs.copy(andesButtonLeftIconPath = CUSTOM_ICON_DEFAULT)
 
-        if (!leftIconPosition) icon = rightIconComponent
+        if (!leftIconPosition){
+            icon = rightIconComponent
+            andesButtonAttrs = andesButtonAttrs.copy(andesButtonLeftIconPath = null,
+                    andesButtonRightIconPath = CUSTOM_ICON_DEFAULT)
+        }
 
         val listener: ControllerListener<ImageInfo> = object : BaseControllerListener<ImageInfo>() {
             override fun onIntermediateImageSet(id: String?, imageInfo: ImageInfo?) {
@@ -494,6 +493,11 @@ class AndesButton : ConstraintLayout {
 
         icon.controller = controller
         icon.visibility = View.VISIBLE
+
+        createConfig().also {
+            updateDynamicComponents(it)
+            updateComponentsAlignment(it)
+        }
     }
 
     /**
@@ -522,6 +526,7 @@ class AndesButton : ConstraintLayout {
         private val HIERARCHY_DEFAULT = AndesButtonHierarchy.LOUD
         private val SIZE_DEFAULT = AndesButtonSize.LARGE
         private val ICON_DEFAULT = null
+        private val CUSTOM_ICON_DEFAULT = "andesui_icon"
     }
 
     @Parcelize
