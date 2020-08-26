@@ -84,10 +84,13 @@ internal object AndesButtonConfigurationFactory {
                 text = andesButtonAttrs.andesButtonText,
                 textColor = resolveTextColor(hierarchy, context),
                 textSize = resolveTextSize(size, context),
-                margin = resolveMargin(size, andesButtonAttrs.andesButtonLeftIconPath, andesButtonAttrs.andesButtonRightIconPath, context),
+                margin = resolveMargin(size, andesButtonAttrs.andesButtonLeftIconPath,
+                        andesButtonAttrs.andesButtonRightIconPath, context),
                 height = resolveHeight(size, context),
                 typeface = resolveTypeface(hierarchy, context),
-                iconConfig = resolveIconConfig(size, hierarchy, andesButtonAttrs.andesButtonLeftIconPath, andesButtonAttrs.andesButtonRightIconPath, context),
+                iconConfig = resolveIconConfig(size, hierarchy,
+                        andesButtonAttrs.andesButtonLeftIconPath,
+                        andesButtonAttrs.andesButtonRightIconPath, context),
                 enabled = andesButtonAttrs.andesButtonEnabled,
                 lateralPadding = resolveLateralPadding(size, context),
                 isLoading = andesButtonAttrs.andesButtonIsLoading
@@ -120,10 +123,12 @@ internal object AndesButtonConfigurationFactory {
                 background = resolveBackground(hierarchy, size, context),
                 textColor = resolveTextColor(hierarchy, context),
                 textSize = resolveTextSize(size, context),
-                margin = resolveMargin(size, andesButtonIcon?.leftIcon, andesButtonIcon?.rightIcon, context),
+                margin = resolveMargin(size,
+                        andesButtonIcon?.leftIcon, andesButtonIcon?.rightIcon, context),
                 height = resolveHeight(size, context),
                 typeface = resolveTypeface(hierarchy, context),
-                iconConfig = resolveIconConfig(size, hierarchy, andesButtonIcon?.leftIcon, andesButtonIcon?.rightIcon, context),
+                iconConfig = resolveIconConfig(size,
+                        hierarchy, andesButtonIcon?.leftIcon, andesButtonIcon?.rightIcon, context),
                 lateralPadding = resolveLateralPadding(size, context)
         )
     }
@@ -158,11 +163,15 @@ internal object AndesButtonConfigurationFactory {
     private fun resolveTextSize(size: AndesButtonSizeInterface, context: Context) = size.textSize(context)
 
     /**
-     * Determines the margins of the button. Takes into account key things like the size and the presence of an icon.
+     * Determines the margins of the button.
+     * Takes into account key things like the size and the presence of an icon.
      *
-     * @param size determined size of the button: Needed because the margins are different for each size.
-     * @param leftIconPath probable icon path of the button. Needed because the margins are different if the button has icon or not.
-     * @param rightIconPath probable icon path of the button. Needed because the margins are different if the button has icon or not.
+     * @param size determined size of the button:
+     * Needed because the margins are different for each size.
+     * @param leftIconPath probable icon path of the button.
+     * Needed because the margins are different if the button has icon or not.
+     * @param rightIconPath probable icon path of the button.
+     * Needed because the margins are different if the button has icon or not.
      * @param context needed for accessing dimen resources.
      */
     private fun resolveMargin(
