@@ -8,7 +8,8 @@ import com.mercadolibre.android.andesui.progress.size.AndesProgressSizeInterface
 internal data class AndesProgressConfiguration(
     val tint: Int = 0,
     val size: Float,
-    val stroke: Int
+    val stroke: Int,
+    val start: Boolean
 )
 
 internal object AndesProgressConfigurationFactory {
@@ -18,7 +19,8 @@ internal object AndesProgressConfigurationFactory {
         return AndesProgressConfiguration(
                 tint = resolveColor(context, andesProgressAttrs.tint),
                 size = resolveSize(context, andesProgressAttrs.andesProgressSize.size),
-                stroke = resolveStroke(context, andesProgressAttrs.andesProgressSize)
+                stroke = resolveStroke(context, andesProgressAttrs.andesProgressSize),
+                start = andesProgressAttrs.start
         )
     }
 

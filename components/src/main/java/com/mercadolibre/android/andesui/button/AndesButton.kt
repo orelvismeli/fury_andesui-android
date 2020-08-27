@@ -399,6 +399,8 @@ class AndesButton : ConstraintLayout {
             loadingView.visibility = View.VISIBLE
             leftIconComponent.visibility = View.INVISIBLE
             rightIconComponent.visibility = View.INVISIBLE
+
+            loadingView.start()
         }else{
             textComponent.visibility = View.VISIBLE
             loadingView.visibility = View.GONE

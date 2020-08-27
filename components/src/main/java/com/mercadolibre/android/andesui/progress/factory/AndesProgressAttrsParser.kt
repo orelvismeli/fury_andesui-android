@@ -10,7 +10,8 @@ import com.mercadolibre.android.andesui.progress.size.AndesProgressSize
  */
 internal data class AndesProgressAttrs(
         val andesProgressSize: AndesProgressSize,
-        val tint: Int
+        val tint: Int,
+        val start: Boolean
 )
 
 internal object AndesProgressAttrsParser{
@@ -33,7 +34,8 @@ internal object AndesProgressAttrsParser{
 
         return AndesProgressAttrs(
                 andesProgressSize = size,
-                tint = typedArray.getInt(R.styleable.AndesProgress_andesProgressTint, 0)
+                tint = typedArray.getInt(R.styleable.AndesProgress_andesProgressTint, 0),
+                start = typedArray.getBoolean(R.styleable.AndesProgress_andesProgressStart, false)
         ).also { typedArray.recycle() }
     }
 }

@@ -67,17 +67,17 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
             progressSize: AndesProgressSize,
             tint: Int
     ) {
-        andesProgressAttr = AndesProgressAttrs(progressSize, tint)
+        andesProgressAttr = AndesProgressAttrs(progressSize, tint, false)
         setupComponents(createConfig())
     }
 
-    private fun initComponents() {
+    private fun initComponents(config: AndesProgressConfiguration) {
         progressComponent = LoadingSpinner(context)
-        progressComponent.start()
+        if (config.start) start()
     }
 
     private fun setupComponents(config: AndesProgressConfiguration) {
-        initComponents()
+        initComponents(config)
 
         setupViewId()
         setupProgressComponent()
@@ -123,6 +123,10 @@ class AndesProgressIndicatorIndeterminate: ConstraintLayout {
     private fun setupSize(config: AndesProgressConfiguration) {
         val params = LayoutParams(config.size.toInt(), config.size.toInt())
         progressComponent.layoutParams = params
+    }
+
+    fun start(){
+        progressComponent.start()
     }
 
     companion object {

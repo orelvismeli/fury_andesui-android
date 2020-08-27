@@ -70,8 +70,8 @@ class AndesButtonTest {
         val textParams = andesButton.textComponent.layoutParams as ConstraintLayout.LayoutParams
 
         assertEquals(andesButton.textComponent.textSize, 14F)
-        assertEquals(textParams.goneStartMargin, 8)
-        assertEquals(textParams.goneEndMargin, 8)
+        assertEquals(textParams.goneStartMargin, 0)
+        assertEquals(textParams.goneEndMargin, 0)
         assertEquals(andesButton.paddingRight, 12)
         assertEquals(andesButton.paddingLeft, 12)
         assertNull(andesButton.leftIconComponent.drawable)

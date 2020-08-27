@@ -16,6 +16,7 @@
         <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:andesProgressStart="true"
             app:andesProgressSize="xlarge"/>
 
         <TextView
@@ -28,6 +29,7 @@
         <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:andesProgressStart="true"
             android:layout_marginTop="20dp"
             app:andesProgressSize="large"/>
         <TextView
@@ -40,6 +42,7 @@
         <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:andesProgressStart="true"
             android:layout_marginTop="20dp"
             app:andesProgressSize="medium"/>
 
@@ -53,6 +56,7 @@
         <com.mercadolibre.android.andesui.progress.AndesProgressIndicatorIndeterminate
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:andesProgressStart="true"
             android:layout_marginTop="20dp"
             app:andesProgressSize="small"/>
 

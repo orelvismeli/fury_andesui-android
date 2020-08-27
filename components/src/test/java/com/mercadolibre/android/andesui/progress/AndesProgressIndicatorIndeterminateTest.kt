@@ -31,7 +31,7 @@ class AndesProgressIndicatorIndeterminateTest {
 
     @Test
     fun `Size XLarge and color default`() {
-        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.XLARGE, 0)
+        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.XLARGE, 0, false)
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 48F)
@@ -40,7 +40,7 @@ class AndesProgressIndicatorIndeterminateTest {
 
     @Test
     fun `Size Large and color default`() {
-        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.LARGE, 0)
+        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.LARGE, 0, false)
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 32F)
@@ -49,7 +49,7 @@ class AndesProgressIndicatorIndeterminateTest {
 
     @Test
     fun `Size Medium and color default`() {
-        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.MEDIUM, 0)
+        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.MEDIUM, 0, false)
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 24F)
@@ -58,7 +58,7 @@ class AndesProgressIndicatorIndeterminateTest {
 
     @Test
     fun `Size Small and color default`() {
-        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.SMALL, 0)
+        andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.SMALL, 0, false)
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 16F)
@@ -68,7 +68,7 @@ class AndesProgressIndicatorIndeterminateTest {
     @Test
     fun `Size Small and color `() {
         andesProgressAttrs = AndesProgressAttrs(AndesProgressSize.SMALL,
-                context.resources.getColor(R.color.andes_yellow_ml_500))
+                context.resources.getColor(R.color.andes_yellow_ml_500), false)
         var config = configFactory.create(context, andesProgressAttrs)
 
         assertEquals(config.size, 16F)

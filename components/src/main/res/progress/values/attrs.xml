@@ -10,5 +10,6 @@
         </attr>
 
         <attr name="andesProgressTint" format="integer" />
+        <attr name="andesProgressStart" format="boolean" />
     </declare-styleable>
 </resources>
