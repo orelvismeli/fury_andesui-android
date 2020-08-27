@@ -2,6 +2,9 @@
     <string name="loud_large_button">Loud Large Button</string>
     <string name="loud_medium_button">Loud Medium Button</string>
     <string name="loud_small_button">Loud Small Button</string>
+    <string name="loud_large_loading_button">Loading Loud Large Button</string>
+    <string name="loud_medium_loading_button">Loading Loud Medium Button</string>
+    <string name="loud_small_loading_button">Loading Loud Small Button</string>
     <string name="loud_large_button_programmatic">Loud Large Button Programmatic</string>
     <string name="loud_medium_button_programmatic">Loud Medium Button Programmatic</string>
     <string name="loud_small_button_programmatic">Loud Small Button Programmatic disabled</string>
@@ -14,6 +17,9 @@
     <string name="quiet_large_button">Quiet Large Button</string>
     <string name="quiet_medium_button">Quiet Medium Button</string>
     <string name="quiet_small_button">Quiet Small Button</string>
+    <string name="quiet_large_loading_button">Loading Quiet Large Button</string>
+    <string name="quiet_medium_loading_button">Loading Quiet Medium Button</string>
+    <string name="quiet_small_loading_button">Loading Quiet Small Button</string>
     <string name="quiet_large_button_programmatic">Quiet Large Button Programmatic</string>
     <string name="quiet_medium_button_programmatic">Quiet Medium Button Programmatic</string>
     <string name="quiet_small_button_programmatic">Quiet Small Button Programmatic</string>
@@ -22,6 +28,9 @@
     <string name="transparent_large_button">Transparent Large Button</string>
     <string name="transparent_medium_button">Transparent Medium Button</string>
     <string name="transparent_small_button">Transparent Small Button</string>
+    <string name="transparent_large_loading_button">Loading Transparent Large Button</string>
+    <string name="transparent_medium_loading_button">Loading Transparent Medium Button</string>
+    <string name="transparent_small_loading_button">Loading Transparent Small Button</string>
     <string name="transparent_large_button_programmatic">Transparent Large Button Programmatic</string>
     <string name="transparent_medium_button_programmatic">Transparent Medium Button Programmatic</string>
     <string name="transparent_small_button_programmatic">Transparent Small Button Programmatic</string>
@@ -197,6 +206,8 @@
     <string name="andesui_demoapp_progress_large">LARGE</string>
     <string name="andesui_demoapp_progress_medium">MEDIUM</string>
     <string name="andesui_demoapp_progress_small">SMALL</string>
+
+    <string name="andesui_demoapp_loading_title">Click the button to show the spinner</string>
 
     <string-array name="state_spinner">
         <item>Neutral</item>

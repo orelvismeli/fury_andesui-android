@@ -212,8 +212,11 @@ class ButtonShowcaseActivity : AppCompatActivity() {
             val layoutTransparentButtons = inflater.inflate(
                     R.layout.andesui_transparent_buttons_showcase, null, false
             )
+            val layoutLoadingButtons = inflater.inflate(
+                    R.layout.andesui_loading_buttons_showcase, null, false
+            )
 
-            return listOf<View>(layoutLoudButtons, layoutQuietButtons, layoutTransparentButtons)
+            return listOf<View>(layoutLoudButtons, layoutQuietButtons, layoutTransparentButtons, layoutLoadingButtons)
         }
     }
 
