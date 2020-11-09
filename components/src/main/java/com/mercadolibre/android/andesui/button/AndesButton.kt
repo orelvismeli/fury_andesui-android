@@ -539,8 +539,8 @@ class AndesButton : ConstraintLayout {
         private val SIZE_DEFAULT = AndesButtonSize.LARGE
         private val ICON_DEFAULT = null
         private const val CUSTOM_ICON_DEFAULT = "andesui_icon"
-        private val loadingName = "isLoading:"
-        private val styleName = "style:"
+        private const val loadingName = "isLoading:"
+        private const val styleName = "style:"
     }
 
     @Parcelize
