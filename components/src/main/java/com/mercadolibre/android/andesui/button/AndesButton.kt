@@ -128,6 +128,7 @@ class AndesButton : ConstraintLayout {
                 updateComponentsAlignment(it)
                 updateDynamicComponents(it)
             }
+            updateContentDescription()
         }
 
     init {
@@ -522,6 +523,14 @@ class AndesButton : ConstraintLayout {
     }
 
     /**
+     * Set button status in content description
+     */
+    private fun updateContentDescription(){
+        var content = "{$loadingName$isLoading,$styleName${hierarchy.name}}"
+        contentDescription = content
+    }
+
+    /**
      * Default values for AndesButton basic properties
      */
     companion object {
@@ -530,6 +539,8 @@ class AndesButton : ConstraintLayout {
         private val SIZE_DEFAULT = AndesButtonSize.LARGE
         private val ICON_DEFAULT = null
         private const val CUSTOM_ICON_DEFAULT = "andesui_icon"
+        private val loadingName = "isLoading:"
+        private val styleName = "style:"
     }
 
     @Parcelize
